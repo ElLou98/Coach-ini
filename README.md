@@ -11,7 +11,7 @@ Version Web :
 ![Accueil du site Web](https://i.imgur.com/gbSXQy6.png)
 
 Version Desktop :  
-![Accueil du desktop](https://i.imgur.com/G7MppZw.png[/img])
+![Accueil du desktop](https://i.imgur.com/G7MppZw.png)
 
 Version Mobile :  
 ![Affichage mes amis, mobile](https://i.imgur.com/vEYL51Q.png)  
