@@ -1,0 +1,96 @@
+{% extends 'frontClient.html.twig' %}
+
+{% block slider %}
+{% endblock %}
+
+
+
+{% block change %}
+    {% block title_index_client %}  {% endblock %}
+    {% block body_Reviews_of_clients %}
+
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+
+
+        <br>
+        <div class="container" style='display:inline-block';>
+            <input class="form-control" id="myInput" type="text" id="navbar-search-input" placeholder="Rechercher ici..." aria-label="search" aria-describedby="search">
+
+        </div>
+
+        <br>
+        <br/>
+
+
+        <table class="table table-responsive" , width="80%" , id="hi">
+            <thead>
+            <tr>
+                {# <th>IdReview</th> #}
+
+
+                <th style="text-align:center">Client Name</th>
+                <th style="text-align:center">Description</th>
+                <th style="text-align:center">Coach Name</th>
+                <th style="text-align:center">Date</th>
+                <th style="text-align:center">Rating</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for review_client in review_clients %}
+                <tr>
+                    {# <td>{{ review_client.idReview }}</td> #}
+
+
+                    <td>{{ review_client.nomClientReview }}</td>
+                    <td>{{ review_client.descriptionReview }}</td>
+                    <td>{{ review_client.nomCoachReview }}</td>
+                    <td style="text-align:center">{{ review_client.dateReview }}</td>
+                    <td>{% set nombre_etoiles = review_client.rating %}
+                        {% for i in range(1, 5) %}
+                            {% if i <= nombre_etoiles %}
+                                <i id="starsnumber" class="fa fa-star fa-2x"> </i>
+                            {% else %}
+                                <span class="not-active"> </span>
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="7">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+
+
+        <br/>
+
+
+    {% endblock %}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#hi tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+
+
+
+
+
+
+{% endblock %}
+

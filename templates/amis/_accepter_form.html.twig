@@ -1,0 +1,4 @@
+<form method="post" action="{{ path('amis_edit', {'idamis': ami.idamis}) }}" onsubmit="return confirm('Voulez-vous accepter cette demande d\'amis?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ ami.idamis) }}">
+    <button class="btn">Accepter</button>
+</form>

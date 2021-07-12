@@ -1,0 +1,48 @@
+.main-content-header {
+  width: calc(100% - 100px);
+  height: 15px;
+  padding: 50px;
+  border-bottom: $top-border-width solid $main-content-header-border-color;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+
+  .warning {
+    color: $main-content-header-color;
+  }
+
+  .christmas-theme {
+    color: $xmas-green;
+  }
+}
+
+.user-menu {
+  min-width: 130px;
+  min-height: 14px;
+  display: flex;
+  align-items: center;
+  margin: -16px 0 0;
+  padding: 15px;
+  line-height: 1.5em;
+  border: 1px solid $user-menu-border-color;
+  border-radius: $default-radius;
+  background: $user-menu-background-color;
+
+  .connection-status {
+    width: 7px;
+    height: 7px;
+    margin: 0 7px 0 0;
+    display: inline-block;
+    border-radius: 50%;
+    background: $error-color;
+
+    &.active {
+      background: $success-color;
+    }
+  }
+
+  .username {
+    max-width: 95%;
+    display: inline-block;
+  }
+}

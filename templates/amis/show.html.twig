@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Amis{% endblock %}
+
+{% block body %}
+    <h1>Amis</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Idamis</th>
+                <td>{{ ami.idamis }}</td>
+            </tr>
+            <tr>
+                <th>Destinataire</th>
+                <td>{{ ami.destinataire }}</td>
+            </tr>
+            <tr>
+                <th>Expediteur</th>
+                <td>{{ ami.expediteur }}</td>
+            </tr>
+            <tr>
+                <th>Etatdemande</th>
+                <td>{{ ami.etatdemande }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('amis_index') }}">back to list</a>
+
+    <a href="{{ path('amis_edit', {'idamis': ami.idamis}) }}">edit</a>
+
+    {{ include('amis/_delete_form.html.twig') }}
+{% endblock %}

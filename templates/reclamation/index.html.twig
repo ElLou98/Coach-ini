@@ -1,0 +1,103 @@
+
+
+{% extends 'baseBack.html.twig' %}
+{% block change %}
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="row">
+
+                <div class="col-12 grid-margin stretch-card">
+                    <h1>Réclamation</h1>
+                </div>
+
+
+
+                    <div class="col-lg-12 grid-margin stretch-card">
+                        <div class="card">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>Recherche :
+                                            <input  class="form-control" size="20" id="myInput" type="text" id="navbar-search-input" placeholder="Recherche" aria-label="search" aria-describedby="search"></th>
+                                    </tr>
+                                    <tr>
+                                        <!--<th>Idreclamation</th>-->
+                                        <th>Username</th>
+                                        <th>Description</th>
+                                        <th>Type</th>
+                                        <th>Date</th>
+                                        <th>Etat</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="hi">
+                                    {% for reclamation in reclamations %}
+                                        <tr>
+                                            <!--<td>{{ reclamation.idreclamation }}</td>-->
+                                            <td>{{ reclamation.login }}</td>
+                                            <td>{{ reclamation.descriptionreclamation }}</td>
+                                            {% if reclamation.idtypereclamation==null %}
+                                                <td>{{ reclamation.typeReclamation }}</td>
+                                            {% else %}
+                                                <td>{{ reclamation.idtypereclamation }}</td>
+                                            {% endif %}
+                                            <td>{{ reclamation.datereclamation }}</td>
+                                            {%  if reclamation.encours ==0 and reclamation.traite==0 %}
+                                                <td><label class="badge badge-danger">En attente</label></td>
+                                            {% elseif reclamation.encours ==1 and reclamation.traite==0 %}
+                                                <td><label class="badge badge-warning">En cours</label></td>
+                                            {% elseif reclamation.encours ==0 and reclamation.traite==1 %}
+                                                <td><label class="badge badge-success">Traitée</label></td>
+                                            {% endif %}
+                                            <td>
+                                                <!--<a class="btn btn-outline-primary btn-fw" href="{{ path('reclamation_show', {'idreclamation': reclamation.idreclamation}) }}">Afficher</a>-->
+                                                <a class="btn btn-outline-primary btn-fw" href="{{ path('reclamation_edit', {'idreclamation': reclamation.idreclamation}) }}">Changer l'état</a>
+                                            </td>
+                                        </tr>
+                                    {% else %}
+                                        <tr>
+                                            <td colspan="8">Aucune réclamation trouvée</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                    </div>
+                    <div class="col">
+                        <a href="{{ url('reclamationsliste')}}"> <button type="button" class="btn btn-primary" name="button">  Télécharger le tableau  </button> </a>
+                    </div>
+                    <div class="col">
+                        {{ knp_pagination_render(reclamations) }}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js "></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js "></script>
+    <script>
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#hi tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+{% endblock %}
+

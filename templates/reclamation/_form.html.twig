@@ -1,0 +1,38 @@
+{{ form_start(form, {attr: {novalidate: 'novalidate'}}) }}
+
+<div class="mb-2 ml-5 mt-3">
+    <div class="row">
+        <div class="col-lg-2">
+            {{ form_label(form.idtypereclamation, 'Type de la réclamation :') }}
+        </div>
+        <div class="col-lg-4">
+            {{ form_widget(form.idtypereclamation) }}
+            {{ form_errors(form.idtypereclamation) }}
+        </div>
+
+
+    </div>
+    <div class="row">
+        <div class="col-lg-2">
+            {{ form_label(form.descriptionreclamation,'Description de la réclamation :') }}
+        </div>
+        <div class="col-lg-4">
+            {{ form_widget(form.descriptionreclamation,{ 'attr': {'size': '30'} }) }}
+            {{ form_errors(form.descriptionreclamation) }}
+        </div>
+    </div>
+
+</div>
+
+<div class=" mb-5">
+    <div class="row ">
+        <div class="col offset-sm-1">
+            <button class="btn btn-primary ">{{ button_label|default('Valider') }}</button>
+            <a href="{{ path('index_reclamation') }}" class="btn btn-primary ">Retour</a>
+        </div>
+
+    </div>
+</div>
+
+{{ form_end(form) }}
+

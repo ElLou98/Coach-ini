@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Categorie Event{% endblock %}
+
+{% block body %}
+    <link rel="stylesheet" href="{{ asset('front/Event.css') }}">
+    <h1 class="center-only">Create new Catégorie Event</h1>
+    {{ include('categorieevent/_form.html.twig') }}
+
+{% endblock %}

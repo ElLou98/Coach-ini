@@ -1,0 +1,4 @@
+<form method="post" action="{{ path('amis_ajouter', {'id': compte.id}) }}" onsubmit="return confirm('Voulez-vous ajouter cette personne en ami(e)?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('ajouter' ~ compte.id) }}">
+    <button class="btn">Ajouter</button>
+</form>

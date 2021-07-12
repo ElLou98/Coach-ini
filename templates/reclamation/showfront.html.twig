@@ -1,0 +1,44 @@
+{% extends 'baseFront.html.twig' %}
+
+{% block change %}
+    <h1>Reclamation</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Idreclamation</th>
+            <td>{{ reclamation.idreclamation }}</td>
+        </tr>
+        <tr>
+            <th>Login</th>
+            <td>{{ reclamation.login }}</td>
+        </tr>
+        <tr>
+            <th>Descriptionreclamation</th>
+            <td>{{ reclamation.descriptionreclamation }}</td>
+        </tr>
+        <tr>
+            <th>Typereclamation</th>
+            <td>{{ reclamation.typereclamation }}</td>
+        </tr>
+        <tr>
+            <th>Datereclamation</th>
+            <td>{{ reclamation.datereclamation }}</td>
+        </tr>
+        <tr>
+            <th>Encours</th>
+            <td>{{ reclamation.encours }}</td>
+        </tr>
+        <tr>
+            <th>Traite</th>
+            <td>{{ reclamation.traite }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('index_reclamation') }}">back to list</a>
+
+    <a href="{{ path('edit_reclamation', {'idreclamation': reclamation.idreclamation}) }}">edit</a>
+
+    {{ include('reclamation/_delete_form.html.twig') }}
+{% endblock %}

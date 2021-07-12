@@ -1,0 +1,4 @@
+<form method="post" action="{{ path('bloquerUtilisateur', {'idamis': ami.idamis}) }}" onsubmit="return confirm('Voulez-vous bloquer cette personne?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('bloque' ~ ami.idamis) }}">
+    <button class="btn btn-danger">Bloquer</button>
+</form>

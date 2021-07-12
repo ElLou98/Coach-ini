@@ -1,0 +1,13 @@
+{% extends 'frontCoach.html.twig' %}
+
+{% block slider %}
+{% endblock %}
+
+
+{% block body %}
+
+    {{ include('seance_planning/_form.html.twig') }}
+
+    <a href="{{ path('seance_planning_index') }}">back to list</a>
+{% endblock %}
+

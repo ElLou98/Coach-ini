@@ -1,0 +1,59 @@
+{% extends 'frontClient.html.twig' %}
+
+{% block slider %}
+{% endblock %}
+
+{% block title %}ReviewClient{% endblock %}
+
+{% block change%}
+    <h1>{{ review_client.nomClientReview }}'s Review</h1>
+
+    <table class="table">
+        <tbody>
+
+        {#
+        <tr>
+                        <td>{{ review_client.nomClientReview }}</td>
+                    </tr>
+        #}
+        <tr>
+            <td><strong>Coach's username:</strong> <i> {{ review_client.nomCoachReview }}</i></td>
+        </tr>
+
+        <tr>
+            <td><strong>Date:</strong> {{ review_client.dateReview }}</td>
+        </tr>
+
+        <tr>
+            <th>
+                {% set nombre_etoiles = review_client.rating %}
+                {% for i in range(1, 5) %}
+                    {% if i <= nombre_etoiles %}
+                        <i id="starsnumber" class="fa fa-star fa-2x"> </i>
+                    {% else %}
+                        <span class="not-active"> </span>
+                    {% endif %}
+                {% endfor %}
+            </th>
+        </tr>
+
+
+        <tr>
+            <td><strong>Description:</strong> {{ review_client.descriptionReview }}</td>
+
+        </tr>
+        </tbody>
+    </table>
+
+    <div style='display:inline-block;margin-left:10px; '>
+        <a href="{{ path('review_client_index_only') }}"class="btn btn-primary">back to list</a>
+
+        <a href="{{ path('review_edit_client', {'idReview': review_client.idReview}) }}"class="btn btn-info">edit</a>
+
+
+    </div>
+    <div style='display:inline-block; margin-right:10px;'>
+        {{ include('review_client/_deleteclient_form.html.twig') }}
+    </div>
+
+{% endblock %}

@@ -1,0 +1,100 @@
+{% extends '../baseFront.html.twig' %}
+
+
+{% block slider %}
+{% endblock %}
+{% block change %}
+        <div class="col-lg-7 col-md-7 col-12">
+                <!-- Contact Form -->
+                <div class="contact-form-area m-top-30">
+                        {{ form_start(form) }}
+
+                                <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-12">
+                                                <div class="form-group">
+                                                        <div class="icon"><i class="fa fa-user"></i></div>
+                                                        {{ 'nom D utilisateur' }}
+                                                        {{ form_widget(form.username, {'attr': {'class': 'form-control form-control-user' , 'placeholder' : 'nom D utilisateur'}} ) }}
+                                                        {{ form_errors(form.username) }}
+                                                </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-12">
+                                                <div class="form-group">
+                                                        <div class="icon"><i class="fa fa-user"></i></div>
+                                                        {{ form_label(form.nom) }}
+                                                        {{ form_widget(form.nom , {'attr': {'class': 'form-control form-control-user' , 'placeholder' : 'nom'}} ) }}
+                                                        {{ form_errors(form.nom) }}
+                                                </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-12">
+                                                <div class="form-group">
+                                                        <div class="icon"><i class="fa fa-envelope"></i></div>
+                                                        {{ form_label(form.prenom) }}
+                                                        {{ form_widget(form.prenom , {'attr': {'class': 'form-control form-control-user' , 'placeholder' : 'prenom'}} ) }}
+                                                        {{ form_errors(form.prenom) }}
+                                                </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-12">
+                                                <div class="form-group">
+                                                        <div class="icon"><i class="fa fa-tag"></i></div>
+                                                        {{ form_label(form.age) }}
+                                                        {{ form_widget(form.age , {'attr': {'class': 'form-control form-control-user' , 'placeholder' : 'age'}} ) }}
+                                                        {{ form_errors(form.age) }}
+                                                </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-12">
+                                                <div class="form-group">
+                                                        <div class="icon"><i class="fa fa-user"></i></div>
+                                                        {{ form_label(form.adresseMail) }}
+                                                        {{ form_widget(form.adresseMail, {'attr': {'class': 'form-control form-control-user' , 'placeholder' : 'adresse mail'}} ) }}
+                                                        {{ form_errors(form.adresseMail) }}
+                                                </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-12">
+                                                <div class="form-group">
+                                                        <div class="icon"><i class="fa fa-user"></i></div>
+                                                        {{ form_label(form.motDePasse) }}
+                                                        {{ form_widget(form.motDePasse, {'attr': {'class': 'form-control form-control-user' , 'placeholder' : 'mot de passe'}} ) }}
+                                                        {{ form_errors(form.motDePasse) }}
+                                                </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-12">
+                                                <div class="form-group">
+                                                        <div class="icon"><i class="fa fa-user"></i></div>
+                                                        {{ form_label(form.numTel) }}
+                                                        {{ form_widget(form.numTel, {'attr': {'class': 'form-control form-control-user' , 'placeholder' : 'numTel'}} ) }}
+                                                        {{ form_errors(form.numTel) }}
+                                                </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-12">
+                                                <div class="form-group">
+                                                        <div class="icon"><i class="fa fa-user"></i></div>
+                                                        <p>Are you a robot?</p>
+                                                        {{ form_widget(form.captchaCode, {'attr': {'class': 'form-control form-control-user' , 'placeholder' : 'captchaCode'}} ) }}
+
+                                                </div>
+                                        </div>
+                                        {% set formErrors = form.vars.errors.form.getErrors(true) %}
+
+                                        {% if formErrors|length %}
+                                                <div class="alert alert-danger">
+                                                        <ul>
+                                                                {% for error in formErrors %}
+                                                                        <li>{{ error.message }}</li>
+                                                                {% endfor %}
+                                                        </ul>
+                                                </div>
+                                        {% endif %}
+                                        <div class="col-12">
+                                                <div class="form-group button">
+                                                        <button class="bizwheel-btn theme-2">{{ button_label|default('Save') }}</button>
+                                                </div>
+                                        </div>
+                                </div>
+
+                </div>
+                <!--/ End contact Form -->
+        </div>
+        {{ form_end(form) }}
+
+{% endblock %}

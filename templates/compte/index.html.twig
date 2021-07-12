@@ -1,0 +1,45 @@
+{% extends 'baseBack.html.twig' %}
+{% block change %}
+    <h1>Compte index</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Username</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Age</th>
+                <th>AdresseMail</th>
+                <th>MotDePasse</th>
+                <th>NumTel</th>
+                <th>Date</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for compte in comptes %}
+            <tr>
+                <td>{{ compte.id }}</td>
+                <td>{{ compte.username }}</td>
+                <td>{{ compte.nom }}</td>
+                <td>{{ compte.prenom }}</td>
+                <td>{{ compte.age }}</td>
+                <td>{{ compte.adresseMail }}</td>
+                <td>{{ compte.motDePasse }}</td>
+                <td>{{ compte.numTel }}</td>
+                <td>{{ compte.date ? compte.date|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('compte_show', {'id': compte.id}) }}">show</a>
+                    <a href="{{ path('compte_edit', {'id': compte.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ path('compte_new') }}">Create new</a>
+{% endblock %}
+

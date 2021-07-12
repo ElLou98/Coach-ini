@@ -1,0 +1,63 @@
+{% extends 'baseBack.html.twig' %}
+
+
+{% block title %}Actualite{% endblock %}
+
+{% block slider %}
+{% endblock %}
+    {% block change %}
+        <div class="container">
+            <div style="width: 100%;display: flex;align-items: center;justify-content: center"> <h1>Actuality</h1></div>
+            <div style="width: 100%;display: flex;align-items: center;justify-content: center">
+                <input style="width: 200px;" class="form-control" id="myInput" type="text" id="navbar-search-input" placeholder="Rechercher" aria-label="search" aria-describedby="search">
+            </div>
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Statut</th>
+                    <th>Image</th>
+                    <th>Fichier</th>
+                    <th>Bio</th>
+                    <th>Competence</th>
+                    <th>Datepub</th>
+                    <th>Like/Dislike</th>
+
+
+                </tr>
+                </thead>
+                <tbody id="hi">
+                {% for actualite in actualites %}
+                    <tr>
+                        <td>{{ actualite.statut }}</td>
+                        <td><img src="/ProfileImages/{{ asset( actualite.image )  }}" style="width: 100px;height: 100px;border-radius: 0"> </td>
+                        <td><a target="_blank" href="/ActualiteFiles{{ asset(actualite.fichier ) }}">{{ actualite.fichier  }}</a></td>
+                        <td>{{ actualite.bio }}</td>
+                        <td>{{ actualite.competence }}</td>
+                        <td>{{ actualite.datepub ? actualite.datepub|date('Y-m-d H:i:s') : '' }}</td>
+                        <td>{{ actualite.likepub }}</td>
+
+
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="9">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#myInput").on("keyup", function() {
+                    var value = $(this).val().toLowerCase();
+                    $("#hi tr").filter(function() {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                    });
+                });
+            });
+        </script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    {% endblock %}

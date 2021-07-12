@@ -1,0 +1,64 @@
+{% extends 'frontClient.html.twig' %}
+
+{% block slider %}
+{% endblock %}
+{% block change %}
+    <section class="center-only">
+    <table class="table5 tdd table-bordered">
+        <tbody>
+            <tr class="table-primary">
+                <th>NomEvent</th>
+                <td>{{ event.nomEvent }}</td>
+            </tr>
+            <tr class="table-primary">
+                <th>Description</th>
+                <td>{{ event.description }}</td>
+            </tr>
+            <tr class="table-danger">
+                <th>DateDebut</th>
+                <td>{{ event.dateDebut ? event.dateDebut|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr class="table-danger">
+                <th>DateFin</th>
+                <td>{{ event.dateFin ? event.dateFin|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr class="table-warning">
+                <th>HeureDebut</th>
+                <td>{{ event.heureDebut }}</td>
+            </tr>
+            <tr class="table-warning">
+                <th>HeureFin</th>
+                <td>{{ event.heureFin }}</td>
+            </tr>
+            <tr class="table-success">
+                <th>Participation</th>
+                <td>{{ event.participation }}</td>
+            </tr>
+            <tr class="table-success">
+                <th>NbParticipant</th>
+                <td>{{ event.nbParticipant }}</td>
+            </tr>
+            <tr class="table-success">
+                <th>catégorie</th>
+                <td>{{ event.idCat }}</td>
+            </tr>
+            <tr >
+                <th>Map Image</th>
+                <td><img src="https://{{ event.dbMap }}" width="500" height="500"></td>
+            </tr>
+            <tr>
+                <th>Lieu</th>
+                <td><p>{{ event.map |replace({'LatLng(': '', ')': '','0':'','1':'','2':'','3':'','4':'','5':'','6':'','7':'','8':'','9':'','.':'',',':''}) }}</p></td></tr>
+        </tbody>
+    </table>
+    </section>
+    <link rel="stylesheet" href="{{ asset('front/Event.css') }}">
+    <link rel="stylesheet" href="{{ asset('back/css/style.css') }}">
+    <div class="center-only" >
+        <div class="margin-top" ><a href="{{ path('event_client_index') }}"><button class="btn btn-success btn-rounded btn-fw alink">back to list</button></a></div>
+        <div class="margin-top"><a href="{{ path('see', {'id': event.id}) }}"><button class="btn btn-dark btn-rounded btn-fw alink">Imprimer Pdf(voir)</button></a></div>
+        <div class="margin-top"><a href="{{ path('email', {'id': event.id}) }}"><button class="btn btn-dark btn-rounded btn-fw alink">Email me Pdf</button></a></div>
+        <div class="margin-top"><a href="{{ path('pdf', {'id': event.id}) }}"><button class="btn btn-dark btn-rounded btn-fw alink">Download Pdf</button></a></div>
+    </div>
+    <link rel="stylesheet" href="{{ asset('front/style.css') }}">
+{% endblock %}

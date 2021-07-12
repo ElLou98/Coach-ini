@@ -1,0 +1,106 @@
+{% extends 'baseBack.html.twig' %}
+
+        {% block change %}
+            <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+            {% block body_Reviews_of_clients %}
+
+
+                {#    <h1>Client's Reviews </h1> #}
+                <div class="container">
+                    <span class="input-group-text" id="search">
+                  <i class="mdi mdi-magnify"></i>
+                     <input class="form-control" id="myInput" type="text" id="navbar-search-input" placeholder="Rechercher ici..." aria-label="search" aria-describedby="search">
+                        <a href="{{ path('review_client_index_back_all') }}" class="btn btn-info" >Print Details</a>
+                </span>
+
+
+
+
+                    <table class="table table-responsive" , id="hi" >
+                        <thead>
+                        <tr>
+                            <th style="text-align:center">Id</th>
+
+                            <th style="text-align:center">Client Username</th>
+                            <th style="text-align:center">Description</th>
+                            <th style="text-align:center">Coach Username</th>
+                            <th style="text-align:center">Date</th>
+                            <th style="text-align:center">Rating</th>
+                            <th style="text-align:center">Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for review_client in review_clients %}
+                            <tr>
+                                <td style="text-align:center">{{ review_client.idReview }}</td>
+
+                                <td style="text-align:center">{{ review_client.nomClientReview }}</td>
+                                <td>{{ review_client.descriptionReview }}</td>
+                                <td style="text-align:center">{{ review_client.nomCoachReview }}</td>
+                                <td>{{ review_client.dateReview }}</td>
+                                <td style="text-align:center">{{ review_client.rating }}</td>
+                                {#
+                                <td>{% set nombre_etoiles = review_client.rating %}
+                                    {% for i in range(1, 5) %}
+                                        {% if i <= nombre_etoiles %}
+                                            <i id="starsreview" class="fa fa-star style-etoile"> </i>
+                                        {% else %}
+                                            <span class="not-active"> </span>
+                                        {% endif %}
+                                    {% endfor %}
+                                </td>
+                                #}
+
+                                <td>
+                                    <a href="{{ path('review_client_show_back', {'idReview': review_client.idReview}) }}" class="btn btn-primary">show</a>
+
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="7">no records found</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    {{ knp_pagination_render(review_clients) }}
+
+                    <!-- Statitique-->
+                    <div id="div_chart"></div>
+
+                    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                    <script type="text/javascript">
+                        {{ gc_draw(piechart, 'div_chart') }}
+                    </script>
+                    <!-- END Statitique-->
+
+
+
+                </div>
+
+
+
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+                <script>
+                    $(document).ready(function(){
+                        $("#myInput").on("keyup", function() {
+                            var value = $(this).val().toLowerCase();
+                            $("#hi tr").filter(function() {
+                                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                            });
+                        });
+                    });
+                </script>
+
+
+            {% endblock %}
+
+
+
+
+
+
+
+
+        {% endblock %}

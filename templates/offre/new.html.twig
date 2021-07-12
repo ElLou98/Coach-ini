@@ -1,0 +1,15 @@
+{% extends 'baseFrontCoach.html.twig' %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+{% block title %}New Offre{% endblock %}
+
+{% block slider %}
+{% endblock %}
+{% block change %}
+    <center><h1>Create new Offre</h1></center>
+    <center>
+<div class="container" >
+
+    {{ include('offre/_form.html.twig') }}
+
+    <a href="{{ path('offre_index') }}">back to list</a></div></center>
+{% endblock %}

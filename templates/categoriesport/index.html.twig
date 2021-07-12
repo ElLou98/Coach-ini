@@ -1,0 +1,68 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block title %}Categoriesport index{% endblock %}
+
+{% block change %}
+
+<div class="container">
+    <h1>Categorie du sport </h1> <br>
+    <input class="form-control" id="myInput" type="text" id="navbar-search-input" placeholder="Rechercher" aria-label="search" aria-describedby="search">
+
+    <br>
+
+    <br> <a class="mdi mdi-fax" href="{{ path('listcategorie') }}" >Imprimer</a>
+
+    <br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Photo</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody id="hi">
+        {% for categoriesport in categoriesports %}
+            <tr>
+                <td>{{ categoriesport.id }}</td>
+                <td>{{ categoriesport.nom }}</td>
+                <td>{{ categoriesport.description }}</td>
+                <td><img src="/uploads/{{ asset( categoriesport.photo )  }}" width="200" height="200"> </td>
+                <td>
+
+                    <a class="btn btn-success" href="{{ path('categoriesport_new') }}">Create </a>
+                    <a class="btn btn-dark" href="{{ path('categoriesport_edit', {'id': categoriesport.id}) }}">Edit</a>
+                    <a class="btn btn-danger" href="{{ path('categoriesport_delete', {'id': categoriesport.id}) }}">Delete</a>
+                    <a class="btn btn-primary" href="{{ path('categoriesport_show', {'id': categoriesport.id}) }}">Show</a>
+
+
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+    {{ knp_pagination_render(categoriesports) }}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#hi tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+</div>
+{% endblock %}

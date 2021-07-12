@@ -1,0 +1,4 @@
+<form method="post" action="{{ path('amis_delete', {'idamis': ami.idamis}) }}" onsubmit="return confirm('Voulez-vous supprimer cette personne de votre liste d\'amis?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ ami.idamis) }}">
+    <button class="btn">Supprimer</button>
+</form>

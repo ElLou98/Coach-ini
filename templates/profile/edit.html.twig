@@ -1,0 +1,18 @@
+{% extends 'baseFront.html.twig' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block slider %}
+{% endblock %}
+    {% block change %}
+        <div class="container">
+    <h1>Edit Profile</h1>
+
+    {{ include('profile/_form.html.twig', {'button_label': 'Update'}) }}
+
+
+
+    {{ include('profile/_delete_form.html.twig') }}
+        <a href="{{ path('profile_index') }}">back to list</a>
+        </div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block change %}
+    <h1>Typereclamation index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Idtypereclamation</th>
+                <th>Typereclamation</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for typereclamation in typereclamations %}
+            <tr>
+                <td>{{ typereclamation.idtypereclamation }}</td>
+                <td>{{ typereclamation.typereclamation }}</td>
+                <td>
+                    <a href="{{ path('typereclamation_show', {'idtypereclamation': typereclamation.idtypereclamation}) }}">show</a>
+                    <a href="{{ path('typereclamation_edit', {'idtypereclamation': typereclamation.idtypereclamation}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('typereclamation_new') }}">Create new</a>
+{% endblock %}

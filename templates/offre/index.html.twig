@@ -1,0 +1,98 @@
+{% extends 'baseFrontCoachDonia.html.twig' %}
+
+{% block title %}Offre index{% endblock %}
+
+{% block change %}
+    <div class="search-top active">
+        <form action="{{ path('recherche') }}" class="search-form" method="get">
+            <input type="text" name="s" value="" placeholder="Search here">
+            <button type="submit" id="searchsubmit"><i class="fa fa-search"></i></button>
+        </form>
+    </div>
+    <div class="topbar">
+<div class="container">
+    <div class="row">
+
+
+
+
+
+
+
+        <div class="clearfix" align="center" >   </br>
+            <a class="btn btn-dark" href="{{ path ('statistiques')}}">Statistique </a>
+
+        </div>
+    </div>
+    </div>
+    </div>
+    <div>
+    </div>
+        <center><h1>Mes offres</h1></center>
+        <div class="container">
+            <div class="row">
+                {% for offre in offres %}
+                    {% if (offre.idCompte is not null) and (offre.idCompte == username) %}
+                    <div class="col-lg-4 col-md-4 col-12">
+
+                            <div class="portfolio-main">
+                                <div id="portfolio-item"
+                                     class="portfolio-item-active cbp cbp-caption-active cbp-caption-overlayBottomPush cbp-ready"
+                                     style="height: 662px;">
+                                    <div class="cbp-wrapper-outer">
+                                        <div class="cbp-wrapper">
+                                            <div class="cbp-item business animation">
+                                                <div class="cbp-item-wrapper">
+                                                    <!-- Single Portfolio -->
+                                                    <div class="single-portfolio">
+                                                        <div class="portfolio-head overlay">
+                                                            <img src="/uploads/{{offre.idCategorie.photo }}"
+                                                                 style="min-width: 10px; min-height:10px" alt="#">
+                                                            <a class="more"
+                                                               href="{{ path('offre_show', {'id': offre.id}) }}"><i
+                                                                        class="fa fa-long-arrow-right"></i></a>
+                                                        </div>
+                                                        <div class="portfolio-content">
+                                                            <h4><a href="">{{ offre.titre }}</a></h4>
+                                                            <p> {{offre.idCategorie.nom }}</p>
+                                                            <p>{{ offre.date ? offre.date|date('Y-m-d') : '' }}
+                                                                , {{ offre.description }}</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <!--/ End Single Portfolio -->
+                                                        <a class="btn btn-success" href="{{ path('offre_new') }}">Create new</a>
+
+                                                        <a class="btn btn-primary"
+                                                           href="{{ path('offre_edit', {'id': offre.id}) }}">edit</a>
+
+                                                        {{ include('offre/_delete_form.html.twig') }}
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                {% endif %}
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+

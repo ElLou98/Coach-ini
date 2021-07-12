@@ -1,0 +1,14 @@
+{% extends 'baseFront.html.twig' %}
+
+
+{% block title %}Actualite{% endblock %}
+
+{% block slider %}
+{% endblock %}
+    {% block change %}
+    <h1>Create new Profile</h1>
+
+    {{ include('profile/_form.html.twig') }}
+
+    <a href="{{ path('profile_index') }}">back to list</a>
+{% endblock %}

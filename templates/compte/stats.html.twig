@@ -1,0 +1,122 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block change %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+    <style>
+        .statsofusers {
+            margin-left: 18vw  ;
+        }
+
+        .canvas-container {
+            display: flex;
+            width: 40%;
+        }
+
+        .cv {
+            width: 100%;
+            height: 100%;
+        }
+
+    </style>
+
+
+    <div class="" style="height:40vh; width:40vw">
+        <canvas id="myChart"></canvas>
+        <canvas id="chartAges"></canvas>
+    </div>
+    <div>
+
+    </div>
+    <div class="" style="height:40vh; width:40vw">
+        <canvas id="myChart2"></canvas>
+        <canvas id="chartdate"></canvas>
+    </div>
+
+
+
+    <script>
+
+
+
+        // chart age
+        var ctx = document.getElementById('chartAges');
+
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ["18-25", "25-35", "35-45", "45-55", "55-100"],
+                datasets: [
+                    {
+                        label: "Age of Users",
+                        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+                        data: {{ statages|json_encode }}
+                    }
+                ]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        stacked: true
+                    }]
+                },
+                legend: { display: false },
+                title: {
+                    display: true,
+                    text: 'Age of Users'
+                }
+            }
+        });
+
+
+
+        // chart date
+        var ctx = document.getElementById('chartdate');
+        var data = {
+            datasets: [{
+                data:  {{ statDate|json_encode }}  ,
+                backgroundColor: [
+                    '#b7c7b7',
+                ]
+            }
+            ],
+
+            // These labels appear in the legend and in the tooltips when hovering different arcs
+            labels: [
+                'January',
+                'February',
+                'March',
+                'April',
+                'May',
+                'June',
+                'July',
+                'August',
+                'September',
+                'October',
+                'November',
+                'December'
+            ]
+        };
+
+        var myLineChart = new Chart(ctx, {
+            type: 'line',
+            data: data,
+            options: {
+                scales: {
+                    yAxes: [{
+                        stacked: true
+                    }]
+                },
+                title: {
+                    display: true,
+                    text: 'New Users per month'
+                }
+            }
+        });
+
+
+
+
+    </script>
+
+{% endblock %}

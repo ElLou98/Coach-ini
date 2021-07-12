@@ -1,0 +1,126 @@
+
+
+
+
+
+<head>
+    <style>
+        /** Define the margins of your page **/
+        @page {
+            margin: 100px 25px;
+        }
+
+        header {
+            position: fixed;
+            top: -60px;
+            left: 0px;
+            right: 0px;
+            height: 50px;
+
+            /** Extra personal styles **/
+            background-color: #03a9f4;
+            color: white;
+            text-align: center;
+            line-height: 35px;
+            text-transform: capitalize;
+            font-size: 150%;
+            font-weight: bold;
+        }
+
+        footer {
+            position: fixed;
+            bottom: -60px;
+            left: 0px;
+            right: 0px;
+            height: 50px;
+
+            /** Extra personal styles **/
+            background-color: #03a9f4;
+            color: white;
+            text-align: center;
+            line-height: 35px;
+        }
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            align-content: center;
+        }
+        th {
+            height: 100px;
+        }
+        td{
+            height: 60px;
+        }
+
+
+    </style>
+</head>
+
+{% block change %}
+
+
+
+        <header>
+           Profile
+
+        </header>
+        <br>
+
+
+
+        <h1 align="Center"> </h1>
+
+        <table  width="100%" >
+            <thead>
+            <tr>
+                <th style="text-align:center">Nom </th>
+                <th style="text-align:center">Description </th>
+                <th style="text-align:center">Categorie</th>
+                <th style="text-align:center">Detail</th>
+
+                <th style="text-align:center">Rating</th>
+
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for profile in profiles %}
+                <tr>
+
+
+                    <td style="text-align:center">{{ profile.nom }}</td>
+                    <td style="text-align:-moz-left">{{ profile.description }}</td>
+                    <td style="text-align:center">{{ profile.categorie }}</td>
+                    <td style="text-align:center">{{ profile.detail }}</td>
+
+
+                    <td style="text-align:center">{{ profile.rating  }}</td>
+
+                </tr>
+
+            {% endfor %}
+            </tbody>
+        </table>
+        <div style="position: absolute;bottom: 0px;">
+            <p>
+                <small><sup>*</sup><small>For more information Check: <a href="https://esprit.tn/">esprit.tn</a></small></small>
+            </p>
+            <p>
+                <small><sup>**</sup><small>Or Contact us on: <b>coachiniapp@gmail.com</b></small></small>
+            </p>
+
+        </div>
+
+
+
+
+
+
+    {% endblock %}
+
+
+    <footer>
+        Copyright &copy; Coachi'ni_APP ESPRIT_20/21
+    </footer>
+
+

@@ -1,0 +1,15 @@
+
+
+{% block slider %}
+{% endblock %}
+
+{% block change%}
+
+
+
+    {{ include('review_client/_formnewclient.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('review_client_index_only') }}"class="btn btn-primary">back to list</a>
+
+    {{ include('review_client/_deleteclient_form.html.twig') }}
+{% endblock %}

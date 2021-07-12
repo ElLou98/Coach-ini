@@ -1,0 +1,15 @@
+{% extends 'baseBack.html.twig' %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block title %}New Categoriesport{% endblock %}
+
+{% block change %}
+
+<div class="container">
+    <h1>Ajouter une Categorie du sport</h1>
+    <br>
+    {{ include('categoriesport/_form.html.twig') }}
+    <a  class="btn btn-behance" href="{{ path('categoriesport_index') }}">back to list</a>
+
+</div>
+{% endblock %}

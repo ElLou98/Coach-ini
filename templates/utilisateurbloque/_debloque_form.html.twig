@@ -1,0 +1,4 @@
+<form method="post" action="{{ path('debloquerUtilisateur', {'idamis': ami.idamis}) }}" onsubmit="return confirm('Voulez-vous débloquer cette personne?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('debloque' ~ ami.idamis) }}">
+    <button class="btn btn-success">Débloquer</button>
+</form>

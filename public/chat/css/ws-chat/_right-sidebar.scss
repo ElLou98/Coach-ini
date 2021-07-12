@@ -1,0 +1,49 @@
+.chat-right-sidebar {
+  max-width: 250px;
+  display: flex;
+  flex-flow: column;
+  flex-grow: 1;
+  background: $right-sidebar-background-color;
+
+  h1 {
+    height: 115px;
+    margin: 0;
+    padding: 0 30px;
+    line-height: 115px;
+    font: bold 24px / 115px $default-font;
+    color: $main-title-color;
+    border-bottom: $top-border-width solid $sidebar-top-border-color;
+  }
+
+  ul {
+    flex-grow: 1;
+    margin: (0 + $xmas-ribbon-height) 0 0;
+    padding: 30px 0 0 30px;
+
+    li {
+      min-height: 50px;
+      padding: 0 50px 0 15px;
+      font: normal 14px $default-font;
+
+      a {
+        line-height: 50px;
+        color: $xmas-grey-light;
+        text-decoration: none;
+      }
+
+      &.active {
+        margin: 10px 0;
+        background: $selected-channel-background-color;
+
+        &:first-child {
+          margin-top: 0;
+        }
+
+        a {
+          color: $selected-channel-color;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

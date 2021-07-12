@@ -1,0 +1,65 @@
+{% extends 'baseFront.html.twig' %}
+
+{% block slider %}
+{% endblock %}
+
+{% block change %}
+    <h1 class="mb-4 mt-1">Réclamation</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Date</th>
+            <th>Etat</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for reclamation in reclamations %}
+            {% if reclamation.login == myUsername  %}
+            <tr>
+                <td>{{ reclamation.descriptionreclamation }}</td>
+                {% if reclamation.idtypereclamation==null %}
+                <td>{{ reclamation.typeReclamation }}</td>
+                {% else %}
+                <td>{{ reclamation.idtypereclamation }}</td>
+                {% endif %}
+                <td>{{ reclamation.datereclamation }}</td>
+                {%  if reclamation.encours ==0 and reclamation.traite==0 %}
+                    <td><label class="badge badge-danger">En attente</label></td>
+                {% elseif reclamation.encours ==1 and reclamation.traite==0 %}
+                    <td><label class="badge badge-warning">En cours</label></td>
+                {% elseif reclamation.encours ==0 and reclamation.traite==1 %}
+                    <td><label class="badge badge-success">Traitée</label></td>
+                {% endif %}
+                <td>
+                   <!-- <a href="{{ path('show_reclamation', {'idreclamation': reclamation.idreclamation}) }}">show</a>
+                    <a href="{{ path('edit_reclamation', {'idreclamation': reclamation.idreclamation}) }}">edit</a> -->
+                    {{ include('reclamation/_delete_form.html.twig') }}
+                </td>
+            </tr>
+            {%  endif %}
+        {% else %}
+            <tr>
+                <td colspan="8">Aucune réclamation à votre nom a été trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="container mb-5">
+        <div class="row">
+            <div class="col">
+            </div>
+            <div class="col">
+                <a href="{{ path('new_reclamation') }}" class="btn btn-primary justify-content-center" >Ajouter une réclamation</a>
+            </div>
+            <div class="col">
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

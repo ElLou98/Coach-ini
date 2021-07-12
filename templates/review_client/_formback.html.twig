@@ -1,0 +1,55 @@
+{% extends 'baseBack.html.twig' %}
+
+
+{% block change%}
+    {{ form_start( form ,{'attr':{'novalidate':'novalidate'}}) }}
+
+
+
+
+
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+
+                <form class="forms-sample">
+                    <div class="form-group">
+                        {{ form_label(form.nomClientReview) }}
+                        {{ form_widget(form.nomClientReview , {'attr': {'class': 'form-control form-control-user' , 'placeholder' : 'Nom..'}} ) }}
+                        {{ form_errors(form.nomClientReview) }}
+                    </div>
+                    <div class="form-group">
+
+                        {{ form_label(form.descriptionReview) }}
+                        {{ form_widget(form.descriptionReview , {'attr': {'class': 'form-control form-control-user' , 'placeholder' : 'Description..'}} ) }}
+                        {{ form_errors(form.descriptionReview) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(form.nomCoachReview) }}
+                        {{ form_widget(form.nomCoachReview , {'attr': {'class': 'form-control form-control-user' , 'placeholder' : 'Coach username...'}} ) }}
+                        {{ form_errors(form.nomCoachReview) }}
+
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(form.rating) }}
+                        {{ form_widget(form.rating , {'attr': {'class': 'form-control form-control-user' , 'placeholder' : 'rating...'}} ) }}
+                        {{ form_errors(form.rating) }}
+
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(form.dateReview) }}
+                        {{ form_widget(form.dateReview , {'attr': {'class': 'form-control form-control-user' , 'placeholder' : 'Date Review not yet'}} ) }}
+                        {{ form_errors(form.dateReview) }}
+
+                    </div>
+
+                    <button class="btn btn-dark">{{ button_label|default('save') }}</button>
+                    <a href="{{ path('review_client_index_back') }}" class="btn btn-primary">back to list</a>
+
+                    {{ form_end(form) }}
+                </form>
+            </div>
+        </div>
+    </div>
+    {{ form_end(form) }}
+{% endblock %}

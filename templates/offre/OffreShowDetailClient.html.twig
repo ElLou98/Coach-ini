@@ -1,0 +1,43 @@
+{% extends 'baseFrontCoachDonia.html.twig' %}
+
+{% block title %}Offre{% endblock %}
+{% block slider %}
+{% endblock %}
+{% block change %}
+
+    <center><h1>{{ offre.titre }}</h1></center>
+    <section class="pf-details  section-space">
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-8 col-12">
+                    <!-- Portfolio Image -->
+                    <div class="project-head">
+                        <img src="/uploads/{{offre.idCategorie.photo }}" style="min-width: initial;min-height: initial" alt="#">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-12">
+                    <!-- Project Info -->
+                    <div class="portfolio-meta">
+                        <ul>
+                            <li><i class="fa fa-circle-o-notch"></i><span>Titre offre:</span> <b>{{ offre.titre }}</b></li>
+                            <li><i class="fa fa-calendar"></i><span>Date offre:</span> <b>{{ offre.date ? offre.date|date('Y-m-d') : '' }}</b></li>
+                            <li><i class="fa fa-bookmark"></i><span>Description:</span> <b>{{ offre.description }}</b></li>
+
+                        </ul>
+                    </div>
+                    <a class="btn btn-dark" href="{{ path('offre_index') }}">back to list</a>
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+{% endblock %}

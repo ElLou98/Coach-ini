@@ -1,0 +1,24 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block change %}
+    <h1>Typereclamation</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Idtypereclamation</th>
+                <td>{{ typereclamation.idtypereclamation }}</td>
+            </tr>
+            <tr>
+                <th>Typereclamation</th>
+                <td>{{ typereclamation.typereclamation }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('typereclamation_index') }}">back to list</a>
+
+    <a href="{{ path('typereclamation_edit', {'idtypereclamation': typereclamation.idtypereclamation}) }}">edit</a>
+
+    {{ include('typereclamation/_delete_form.html.twig') }}
+{% endblock %}

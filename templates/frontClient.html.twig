@@ -1,0 +1,187 @@
+{% extends '/baseFront.html.twig' %}
+{% block header %}
+    <!-- Header -->
+    <header class="header">
+        <!-- Topbar -->
+        <div class="topbar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-12">
+                        <!-- Top Contact -->
+                        <div class="top-contact">
+                            <div class="single-contact"><i class="fa fa-phone"></i>Phone: +(216) 26262626</div>
+                            <div class="single-contact"><i class="fa fa-envelope-open"></i>Email: coachiniapp@gmail.com</div>
+                        </div>
+                        <!-- End Top Contact -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/ End Topbar -->
+        <!-- Middle Header -->
+        <div class="middle-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="middle-inner">
+                            <div class="row">
+                                <div class="col-lg-2 col-md-3 col-12">
+                                    <!-- Logo -->
+                                    <div class="logo">
+                                        <!-- Image Logo -->
+                                        <div class="img-logo">
+                                            <a href="index.html">
+                                                <img src="{{asset('front/img/logo.png')}}" alt="#">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="mobile-nav"></div>
+                                </div>
+                                <div class="col-lg-10 col-md-9 col-12">
+                                    <div class="menu-area">
+                                        <!-- Main Menu -->
+                                        <nav class="navbar navbar-expand-lg">
+                                            <div class="navbar-collapse">
+                                                <div class="nav-inner">
+                                                    <div class="menu-home-menu-container">
+                                                        <!-- Naviagiton -->
+                                                        <ul id="nav" class="nav main-menu menu navbar-nav">
+                                                        <li><a href="{{ path('profile_index') }}">Profil</a><ul class="sub-menu">
+                                                                            <li><a id="createnewbtn" class="btn btn-primary mb-2 mt-2" href="{{ path('profile_new') }}">Create new</a></li>
+                                                                        </ul></li>
+
+                                                            <li><a href="{{ path('actualite_index') }}">Actuality</a>
+                                                             <ul class="sub-menu">
+                                                                            <li><a id="createnewbtn" class="btn btn-primary mb-2 mt-2" href="{{ path('actualite_indexact') }}">Gérer Mes Actualité</a></li>
+                                                                        </ul></li>
+                                                                        <li><a >Reviews</a>
+                                                             <ul class="sub-menu">
+                                                                            <li><a id="createnewbtn" class="btn btn-primary mb-2 mt-2" href="{{ path('review_client_index_all') }}">All reviews</a></li>
+                                                                            <li><a id="createnewbtn" class="btn btn-primary mb-2 mt-2" href="{{ path('review_client_index_only') }}">My reviews</a></li>
+                                                                        </ul></li>
+                                                                        <li><a href="{{ url('seance_planning_index_client')}}">Planning</a></li>
+
+                                                            <li><a href="{{ url('event_client_index')}}">See Events</a></li>
+                                                             <li><a href="{{ url('offre_index')}}">See Offre</a></li>
+
+                                                            <li><a href="{{ url('amis_index')}}">Messageries & Amies</a></li>
+                                                            <li><a href="{{ url('index_reclamation')}}">Réclamation</a></li>
+                                                            <li><a href="{{ url('logout')}}">Sign out</a></li>
+                                                            <li><a href="{{ url('myAccount')}}">My account</a></li>
+                                                        </ul>
+                                                        <!--/ End Naviagiton -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </nav>
+                                        <!--/ End Main Menu -->
+                                        <!-- Right Bar -->
+                                        <div class="right-bar">
+                                            <!-- Search Bar -->
+                                            <ul class="right-nav">
+                                                <li class="top-search"><a href="#0"><i class="fa fa-search"></i></a></li>
+
+                                            </ul>
+                                            <!--/ End Search Bar -->
+                                            <!-- Search Form -->
+                                            <div class="search-top">
+                                                <form action="#" class="search-form" method="get">
+                                                    <input type="text" name="s" value="" placeholder="Search here"/>
+                                                    <button type="submit" id="searchsubmit"><i class="fa fa-search"></i></button>
+                                                </form>
+                                            </div>
+                                            <!--/ End Search Form -->
+                                        </div>
+                                        <!--/ End Right Bar -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/ End Middle Header -->
+        <!-- Sidebar Popup -->
+        <div class="sidebar-popup">
+            <div class="cross">
+                <a class="btn"><i class="fa fa-close"></i></a>
+            </div>
+            <div class="single-content">
+                <h4>About Bizwheel</h4>
+                <p>The main component of a healthy environment for self esteem is that it needs be nurturing. It should provide unconditional warmth.</p>
+                <!-- Social Icons -->
+                <ul class="social">
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                </ul>
+            </div>
+            <div class="single-content">
+                <h4>Important Links</h4>
+                <ul class="links">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Our Services</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">Pricing Plan</a></li>
+                    <li><a href="#">Blog & News</a></li>
+                    <li><a href="#">Contact us</a></li>
+                </ul>
+            </div>
+        </div>
+        <!--/ Sidebar Popup -->
+    </header>
+    <!--/ End Header -->
+{% endblock %}
+{% block slider %}
+        <section class="hero-slider style1">
+            <section class="hero-slider style1">
+                <div class="home-slider">
+                    <!-- Single Slider -->
+                    <div class="single-slider" style="background-image:url('https://i0.wp.com/www.fit-wave.com/wp-content/uploads/2019/07/FW-coach.png?fit=1532%2C1022&ssl=1')">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-7 col-md-8 col-12">
+                                    <div class="welcome-text">
+                                        <div class="hero-text">
+                                            <h4>We are always ready to help you</h4>
+                                            <h1>Our great Coach Waiting for you</h1>
+                                            <div class="p-text">
+                                                <p>Find your coach now </p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/ End Single Slider -->
+                    <!-- Single Slider -->
+                    <div class="single-slider" style="background-image:url('https://www.superprof.ch/blog/wp-content/uploads/2019/09/coaching-sportif-vaudois.jpg')">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-7 col-md-8 col-12">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/ End Single Slider -->
+                    <!-- Single Slider -->
+                    <div class="single-slider" style="background-image:url('https://www.justcoaching.fr/wp-content/uploads/2019/10/Pourquoi-faire-appel-%C3%A0-un-coach-sportif-personnel-1200x600.jpg')">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-7 col-md-8 col-12">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/ End Single Slider -->
+            </section>
+            <!--/ End Hero Slider -->
+            {% endblock %}
+{% block change %}
+    <p>hello im a client</p>
+{% endblock %}

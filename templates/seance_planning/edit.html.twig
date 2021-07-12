@@ -1,0 +1,11 @@
+{% block slider %}
+{% endblock %}
+
+{% block change%}
+
+    {{ include('seance_planning/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('seance_planning_index') }}">back to list</a>
+
+    {{ include('seance_planning/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block title %}Event index{% endblock %}
+
+{% block change %}
+    <div xmlns="http://www.w3.org/1999/html">
+    <link rel="stylesheet" href="{{ asset('back/css/style.css') }}">
+    <h1 class="ml3" style="margin-top: 40px; margin-bottom: 40px"  >Gestion des Catégories Events</h1>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js">
+    </script>
+    <script src="{{ asset('front/js/MovingText.js') }}"></script>
+    <table class="table4  table-striped " >
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>DbPicture</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for categorieevent in categorieevents %}
+            <tr >
+                <td>{{ categorieevent.nom }}</td>
+                <td>{{ categorieevent.description }}</td>
+
+                <td >
+                    <script type="text/javascript">
+                        var ret ={{ categorieevent.image |json_encode() |raw }}.
+                        replace('/opt/lampp/htdocs/', 'localhost/');
+                        ret =ret.replace('localhost/', 'https://localhost/');
+                        /*document.getElementById("pic").src = ret;
+                        alert(ret);*/
+                        var myImage = new Image(80, 80);
+                        myImage.src = ret;
+                        document.write("<img src="+ret+" width='80px' height='80px'>");
+                        //document.getElementById("rw").appendChild(myImage);
+                    </script>
+
+                  {#  <img src="" id ="pic" width="80px" height="80px">#}
+                </td>
+                <td>
+                    <a  href="{{ path('categorieevent_show', {'id': categorieevent.id}) }}"><button class="btn btn-warning btn-rounded btn-fw">show</button></a>
+
+                </td>
+                <td>
+                    <a class ="alink" href="{{ path('categorieevent_edit', {'id': categorieevent.id}) }}"><button class="btn btn-info btn-rounded btn-fw">edit</button></a>
+                </td>
+                <td>
+                    {{ include('categorieevent/_delete_form.html.twig') }}
+                </td>
+
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <link rel="stylesheet" href="{{ asset('front/Event.css') }}">
+    <div class="center-div " STYLE="margin-bottom: 30px"> <a class="alink" href="{{ path('categorieevent_new') }}"><button class="btn btn-success btn-rounded btn-fw">Create new</button></a></div>
+    <link rel="stylesheet" href="{{ asset('front/style.css') }}">
+   </div>
+{% endblock %}

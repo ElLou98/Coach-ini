@@ -1,0 +1,33 @@
+{% extends '/baseFront.html.twig' %}
+
+
+{% block slider %}
+{% endblock %}
+{% block change %}
+    <div class="col-lg-7 col-md-7 col-12">
+        <!-- Contact Form -->
+        <div class="contact-form-area m-top-30">
+            {{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
+
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="form-group">
+                        <div class="icon"><i class="fa fa-user"></i></div>
+                        {{ 'Email address' }}
+                        {{ form_widget(form.adresseMail, {'attr': {'class': 'form-control form-control-user' , 'placeholder' : 'Email Adress'}} ) }}
+                        {{ form_errors(form.adresseMail) }}
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group button">
+                        <button class="bizwheel-btn theme-2">{{ button_label|default('Send') }}</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!--/ End contact Form -->
+    </div>
+    {{ form_end(form) }}
+
+{% endblock %}

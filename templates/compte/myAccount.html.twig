@@ -1,0 +1,47 @@
+{% extends '/frontClient.html.twig' %}
+{% block slider %}
+{% endblock %}
+{% block change %}
+    <div class="single-contact-box">
+        <div class="c-text">
+            <h4>user name</h4>
+            <p>{{ id }}</p>
+        </div>
+    </div>
+    <div class="single-contact-box">
+        <div class="c-text">
+            <h4>user name</h4>
+            <p>{{ compte.username }}</p>
+        </div>
+    </div>
+    <div class="single-contact-box">
+        <div class="c-text">
+            <h4>Last name</h4>
+            <p>{{ compte.nom }}</p>
+        </div>
+    </div>
+    <div class="single-contact-box">
+        <div class="c-text">
+            <h4>First name</h4>
+            <p>{{ compte.prenom }}</p>
+        </div>
+    </div>
+    <div class="single-contact-box">
+        <div class="c-text">
+            <h4>age</h4>
+            <p>{{ compte.age }}</p>
+        </div>
+    </div>
+    <div class="single-contact-box">
+        <div class="c-text">
+            <h4>Email Address</h4>
+            <p>{{ compte.adresseMail }}</p>
+        </div>
+    </div>
+    <div class="single-contact-box">
+        <div class="c-text">
+            <h4>Phone Number</h4>
+            <p>{{ compte.numtel }}</p>
+        </div>
+    </div>
+{% endblock %}

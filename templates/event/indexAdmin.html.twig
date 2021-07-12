@@ -1,0 +1,104 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block title %}Event index{% endblock %}
+{% block slider %}
+{% endblock %}
+{% block change %}
+    <div style="margin-top: 40px">
+    <div class="center-only"><input  class="form-check-info" id="myInput" type="text" id="navbar-search-input" placeholder="Rechercher ici..." aria-label="searcmyInputh" aria-describedby="search"></div>
+    <section class="center-div" >
+    <table  class="table table-bordered" id="hi">
+            <tr id="highlight" >
+                <th class="spaceUnder">NomEvent</th>
+                <th class="spaceUnder">DateDebut  </th>
+                <th>HeureDebut  </th>
+                <th>DateFin  </th>
+                <th>HeureFin  </th>
+                <th>Participation  </th>
+                <th>Nombre </th>
+                <th>Description  </th>
+                <th>Type Event  </th>
+                <th>Map Picture  </th>
+                <th>Adresse  </th>
+                <th>Actions  </th>
+            </tr>
+        </thead>
+        <tbody>
+        <script>var i=0;var values  =[];</script>
+        {% set count = 0 %}
+        {% for event in events %}
+            {% set count = count + 1 %}
+            <tr>
+                <td>{{ event.nomEvent }}</td>
+                <td >{{ event.dateDebut ? event.dateDebut|date('Y-m-d') : '' }}</td>
+                <td>{{ event.heureDebut }}</td>
+                <td id="{{ count }}">{{ event.dateFin ? event.dateFin|date('Y-m-d') : '' }}</td>
+                <td id="{{ count }}{{ count }}{{ count }}">{{ event.heureFin }}</td>
+                <td>{{ event.participation }}</td>
+                <td>{{ event.nbParticipant }}</td>
+                <td>{{ event.description }}</td>
+                <td>{{ event.idCat}}</td>
+                <td><img id="myImg{{ count }}" src="https://{{ event.dbMap }}" height="200px" width="200px"></td>
+                <td><p>{{ event.map |replace({'LatLng(': '', ')': '','0':'','1':'','2':'','3':'','4':'','5':'','6':'','7':'','8':'','9':'','.':'',',':''}) }}</p></td>
+                <td> {{ include('event/_delete_form.html.twig') }}</td>
+            </tr>
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+                <span class="close">&times;</span>
+                <img class="modal-content" id="img01">
+                <div id="caption"></div>
+            </div>
+            </tbody>
+            <script>
+                // Get the modal
+                var modal = document.getElementById("myModal");
+
+                // Get the image and insert it inside the modal - use its "alt" text as a caption
+                var img = document.getElementById("myImg{{ count }}");
+                var img2 = document.getElementById("myImg{{ count }}{{ count }}");
+                var modalImg = document.getElementById("img01");
+                var captionText = document.getElementById("caption");
+                img.onclick = function(){
+                    modal.style.display = "block";
+                    modalImg.src = this.src;
+                    captionText.innerHTML = this.alt;
+                }
+                img2.onclick = function(){
+                    modal.style.display = "block";
+                    modalImg.src = this.src;
+                    captionText.innerHTML = this.alt;
+                }
+
+                // Get the <span> element that closes the modal
+                var span = document.getElementsByClassName("close")[0];
+
+                // When the user clicks on <span> (x), close the modal
+                span.onclick = function() {
+                    modal.style.display = "none";
+                }
+            </script>
+
+            {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </table>
+        </tbody>
+    <link rel="stylesheet" href="{{ asset('front/Event.css') }}">
+    </section>
+    <link rel="stylesheet" href="{{ asset('front/style.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#hi tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+    </div>
+    <div>{{ knp_pagination_render(events) }}</div>
+{% endblock %}

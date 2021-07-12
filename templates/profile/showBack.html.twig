@@ -1,0 +1,61 @@
+{% extends 'baseBack.html.twig' %}
+{% block title %}Profile{% endblock %}
+
+{% block slider %}
+{% endblock %}
+    {% block change %}
+        <div class="container">
+        <div style="width: 100%;display: flex;align-items: center;justify-content: center">
+            <div style="width: 200px;display: flex;align-items: center;justify-content: center"> <h1>Profile</h1></div>
+        </div>
+        <div style="width: 100%;display: flex;align-items: center;justify-content: center">
+            <input style="width: 200px" class="form-control" id="myInput" type="text" id="navbar-search-input" placeholder="Rechercher" aria-label="search" aria-describedby="search">
+        </div>
+
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Photo</th>
+                    <th>Description</th>
+                    <th>Rating</th>
+                    <th>Categorie</th>
+                    <th>Detail</th>
+
+                </tr>
+                </thead>
+                <tbody id="hi">
+                {% for profile in profiles %}
+                    <tr>
+                        <td>{{ profile.nom }}</td>
+                        <td><img src="/ProfileImages/{{ asset(profile.photo)  }}" style="width: 100px;height: 100px;"> </td>
+                        <td>{{ profile.description }}</td>
+                        <td>{{ profile.rating }}</td>
+                        <td>{{ profile.categorie }}</td>
+                        <td>{{ profile.detail }}</td>
+
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="9">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#myInput").on("keyup", function() {
+                    var value = $(this).val().toLowerCase();
+                    $("#hi tr").filter(function() {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                    });
+                });
+            });
+        </script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    {% endblock %}

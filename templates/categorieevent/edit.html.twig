@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Categorieevent{% endblock %}
+
+{% block body %}
+    <link rel="stylesheet" href="{{ asset('front/Event.css') }}">
+    <h1 class="center-only">Edit Catégorie Event</h1>
+
+    {{ include('categorieevent/_form.html.twig', {'button_label': 'Update'}) }}
+
+{% endblock %}

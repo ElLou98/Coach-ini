@@ -1,0 +1,108 @@
+{% extends 'baseFront.html.twig' %}
+{% block head %}
+    <head>
+        <!-- Meta Tag -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name='copyright' content='pavilan'>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Title Tag  -->
+        <title>Bizwheel - Multipurpose Business & Digital Agency Html5 Template</title>
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/favicon.png" href="{{asset('front/img/favicon.png')}}">
+
+        <!-- Web Font -->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+        <!-- Bizwheel Plugins CSS -->
+        <link rel="stylesheet" href="{{asset('front/css/animate.min.css')}}">
+        <link rel="stylesheet" href="{{asset('front/css/bootstrap.min.css')}}">
+        <link rel="stylesheet" href="{{asset('front/css/cubeportfolio.min.css')}}">
+        <link rel="stylesheet" href="{{asset('front/css/font-awesome.css')}}">
+        <link rel="stylesheet" href="{{asset('front/css/jquery.fancybox.min.css')}}">
+        <link rel="stylesheet" href="{{asset('front/css/magnific-popup.min.css')}}">
+        <link rel="stylesheet" href="{{asset('front/css/owl-carousel.min.css')}}">
+        <link rel="stylesheet" href="{{asset('front/css/slicknav.min.css')}}">
+
+        <!-- Bizwheel Stylesheet -->
+        <link rel="stylesheet" href="{{asset('front/css/reset.css')}}">
+        <link rel="stylesheet" href="{{asset('front/style.css')}}">
+        <link rel="stylesheet" href="{{asset('front/css/responsive.css')}}">
+
+        <!-- Bizwheel Colors -->
+        <!--<link rel="stylesheet" href="{{asset('front/css/skins/skin-1.css')}}">-->
+        <!--<link rel="stylesheet" href="{{asset('front/css/skins/skin-2.css')}}">-->
+        <!--<link rel="stylesheet" href="{{asset('front/css/skins/skin-3.css')}}">-->
+        <!--<link rel="stylesheet" href="{{asset('front/css/skins/skin-4.css')}}">-->
+
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <link rel="stylesheet" href="{{ asset('chat/css/main.css') }}">
+
+{% endblock %}
+
+    {% block slider %}
+    {% endblock %}
+
+    {% block change %}
+        <div class="container">
+            <h1>Coach'ini Chat</h1>
+            <ul id="ws-notif-receiver" class="chat-messages-list"></ul>
+            {% for message in messages %}
+                {% if (message.destinataire==me and message.expediteur==friend)or(message.destinataire==friend and message.expediteur==me) %}
+                    {% if message.expediteur==me %}
+                        <ul class="chat-messages-list">
+                            <li class="">
+                                <strong> {{message.expediteur}} </strong>: {{ message.contenumessage }}
+                                &nbsp;&nbsp;&nbsp;&nbsp;<a href="{{ path('message_edit', {'idmessage': message.idmessage}) }}" class="btn btn-primary">
+                                    Editer
+                                </a>
+                            </li>
+                        </ul>
+                    {% else %}
+                    <ul class="chat-messages-list">
+                        <li class="">
+                            <strong> {{message.expediteur}} </strong>: {{ message.contenumessage }}
+                        </li>
+                    </ul>
+                {% endif %}
+                {% endif %}
+            {% endfor %}
+            <ul id="ws-content-receiver" class="chat-messages-list"></ul>
+            <input type="text" id="ws-content-to-send" size="40" />
+            <!--<button type="button" id="ws-send-content" class="btn btn-success" >Envoyer</button>-->
+            <button  id="ws-send-content" class="btn btn-success"  >Envoyer</button>
+
+
+
+
+
+            <!-- <button type="button" id="ws-send-content" class="btn btn-success" ><a href="{url('newMessage',{friend : friend,me : me}) }}">Envoyer</a></button>-->
+        </div>
+
+        <script type="text/javascript">
+            var wsUrl = '{{ ws_url }}';
+            var tempMe = '{{ me }}';
+            var friend = '{{ friend }}';
+            var tempChannel = '{{ tempChannel }}';
+
+                function onclickTest(event){
+                    event.preventDefault();
+                    $.get("{{url('jsonMessageTest',{friend : friend,me : me})}}");
+                }
+                document.querySelector("#ws-send-content").addEventListener('click',onclickTest);
+
+
+
+        </script>
+        <script type="text/javascript" src="{{ asset('chat/js/sf-websocket.js') }}"></script>
+
+
+    {% endblock %}
+

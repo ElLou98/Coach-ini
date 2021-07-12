@@ -1,0 +1,16 @@
+{% extends 'baseBack.html.twig' %}
+
+
+{% block title %}Edit Categoriesport{% endblock %}
+
+{% block change %}
+<div class="container">
+    <h1>Edit Categoriesport</h1>
+
+    {{ include('categoriesport/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a  class="btn btn-behance" href="{{ path('categoriesport_index') }}">back to list</a>
+
+
+</div>
+{% endblock %}

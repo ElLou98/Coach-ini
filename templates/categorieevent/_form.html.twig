@@ -1,0 +1,53 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block change %}
+
+    {{ form_start(form,{attr: {novalidate: 'novalidate'}}) }}
+    <link rel="stylesheet" href="{{ asset('back/css/styleE.css') }}">
+
+    <div class="col-md-6 grid-margin stretch-card child-three page-body-wrapper2" >
+        <div class="card table1" style="border-style: groove;border-color: #8CD2E5;" >
+            <div class="card-body">
+                <form class="forms-sample">
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Nom</label>
+                        <div class="col-sm-9">
+                            <div class="col-md-8">{{ form_errors(form.nom)}}{{ form_widget(form.nom)}}</div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Description</label>
+                        <div class="col-sm-9">
+                            <div class="col-xl">{{ form_errors(form.description)}}{{ form_widget(form.description)}}</div>
+                        </div>
+                    </div>
+                    <div class="form-group row" style="display:none">
+                        <label class="col-sm-3 col-form-label">Photo</label>
+                        <div class="col-sm-9">
+                            <div class="col-md-5">{{ form_errors(form.photo)}}{{ form_widget(form.photo)}}</div>
+                        </div>
+                    </div>
+                    <div class="form-group row" >
+                        <label class="col-sm-3 col-form-label">Old Picture</label>
+                        <div class="col-sm-9">
+                            <div class="col-md-5"><img src="https://{{ categorieevent.image }}" width="100" height="100"></div>
+                        </div>
+                    </div>
+                    {{ form_row(form._token) }}
+
+                    <div >{{ form_errors(form.dbPicture)}}{{ form_widget(form.dbPicture)}}</div>
+                    <div class="form-check form-check-flat form-check-primary">
+                        <button class="btn btn-primary mr-2">{{ button_label|default('Save') }}</button>
+                        <a href="{{ path('categorieevent_index')}}" class="btn btn-light" >Cancel and return</a>
+                    </div>
+                    {{ form_rest(form)}}
+                </form>
+                <link rel="stylesheet" href="{{ asset('front/Event.css') }}">
+            </div>
+        </div>
+    </div>
+    {{ form_end(form) }}
+    <link rel="stylesheet" href="{{ asset('front/style.css') }}">
+{% endblock %}
+
+

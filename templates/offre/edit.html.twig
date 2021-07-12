@@ -1,0 +1,16 @@
+{% extends 'baseFrontCoachDonia.html.twig' %}
+
+{% block title %}Edit Offre{% endblock %}
+{% block slider %}
+{% endblock %}
+{% block change %}
+    <center> <h1>Edit Offre</h1></center>
+<center>
+    <div class="container" >
+    {{ include('offre/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('offre_index') }}">back to list</a>
+    </div>
+  </center>
+
+{% endblock %}

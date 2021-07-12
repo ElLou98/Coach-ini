@@ -1,0 +1,27 @@
+.christmas-icon {
+  @extend .icon;
+
+  width: 100%;
+  height: 80px;
+  background: center center no-repeat;
+
+  &.ci-ball {
+    background-image: url($icons-folder + 'christmas-ball.png');
+  }
+
+  &.ci-star {
+    background-image: url($icons-folder + 'christmas-star.png');
+  }
+
+  &.ci-tree {
+    background-image: url($icons-folder + 'christmas-tree.png');
+  }
+
+  &.ci-rocket {
+    background-image: url($icons-folder + 'rocket.png');
+  }
+
+  &.ci-rudolph {
+    background-image: url($icons-folder + 'rudolph.png');
+  }
+}

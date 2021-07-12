@@ -1,0 +1,32 @@
+.chat-messages-list {
+  height: 410px;
+  padding: 50px;
+  overflow: auto;
+
+  li {
+    margin: 0 0 20px;
+    padding: 20px;
+    color: $default-message-color;
+    background: $default-message-background-color;
+
+    &.mine {
+      color: $my-message-color;
+      background: $my-message-background-color;
+    }
+
+    &.success {
+      color: $success-message-color;
+      background: $success-color;
+    }
+
+    &.error {
+      color: $error-message-color;
+      background: $error-color;
+    }
+
+    &.disabled {
+      color: $disabled-message-color;
+      background: $disabled-message-background-color;
+    }
+  }
+}

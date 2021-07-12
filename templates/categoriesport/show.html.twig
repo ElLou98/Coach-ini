@@ -1,0 +1,35 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block title %}Categoriesport{% endblock %}
+
+{% block change %}
+    <div class="container">
+    <h1>{{ categoriesport.nom }}</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Photo</th>
+         <td>   <img src="/uploads/{{ asset( categoriesport.photo )  }}" width="200" height="200"></td>
+        </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ categoriesport.nom }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ categoriesport.description }}</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+<div class="row">
+
+    <a class="btn btn-dark" href="{{ path('categoriesport_edit', {'id': categoriesport.id}) }}">edit</a>
+        <a class="btn btn-behance" href="{{ path('categoriesport_index') }}">back to list</a>
+
+    {{ include('categoriesport/_delete_form.html.twig') }}
+</div>
+    </div>
+{% endblock %}

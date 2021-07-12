@@ -1,0 +1,17 @@
+{% extends 'baseFront.html.twig' %}
+
+
+{% block title %}Actualite{% endblock %}
+
+{% block slider %}
+{% endblock %}
+    {% block change %}
+        <h1>Edit Actualite</h1>
+
+    {{ include('actualite/_form.html.twig', {'button_label': 'Update'}) }}
+
+
+
+    {{ include('actualite/_delete_form.html.twig') }}
+        <a href="{{ path('actualite_index') }}">back to list</a>
+{% endblock %}

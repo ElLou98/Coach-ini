@@ -1,0 +1,200 @@
+{% extends 'baseFront.html.twig' %}
+
+{% block slider %}
+{% endblock %}
+
+{% block change %}
+    <h1>Amis</h1>
+<div class="row mb-3">
+
+    <div class="col-4 mr-5 ml-2">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Ajouter un ami : </th>
+                <th><input  size="10" id="myInput" type="text"  placeholder="Username" aria-label="search" aria-describedby="search"></th>
+            </tr>
+            </thead>
+            <tbody id="hi">
+
+            {% for compte in comptes %}
+                {% if compte.username !=myUsername %}
+                <tr>
+                    {% set isMyFriend=false %}
+
+                    {% for ami in amis  %}
+                        {% if isMyFriend==false %}
+                        {% if (ami.expediteur==myUsername and ami.destinataire==compte.username) or (ami.expediteur== compte.username and ami.destinataire==myUsername) %}
+                            {% set isMyFriend=true %}
+                        {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                    {% if not isMyFriend %}
+                    <td> {{ compte.username }} </td>
+                    <td>{{ include('amis/_ajout_form.html.twig') }}</td>
+                    {% endif %}
+
+                </tr>
+                {% endif %}
+            {% else %}
+                <tr>
+                    <td colspan="5">Aucune suggestions n'est possible</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-4 align-self-start ml-5">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Mes Amis :</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for ami in amis %}
+            <tr>
+                <!--{/* % if app.session.has('user') % */}-->
+                {% if ami.destinataire == myUsername and ami.etatdemande==1%}
+                <td> {{ ami.expediteur }} </td>
+                <td> {{ include('amis/_delete_form.html.twig') }} </td>
+                    {% set isBlocked=false %}
+                    {% set blockedMe=false %}
+                    {% for uBloque in uBloques %}
+                    {% if uBloque.utilisateur==ami.destinataire and uBloque.abloque==ami.expediteur %}
+                        <td> <button type="button">{{ include('utilisateurbloque/_delete_form.html.twig') }}</button> </td>
+                        {% set isBlocked=true %}
+                    {% endif %}
+                    {% if uBloque.utilisateur==ami.expediteur and uBloque.abloque==ami.destinataire %}
+                        {% set blockedMe=true %}
+                    {% endif %}
+                    {% endfor%}
+                    {% if isBlocked==false and blockedMe==false %}
+                    <td><a href="{{ path('openChat',{'friend':ami.expediteur,'me':myUsername}) }}" class="btn btn-info">Chat</a></td>
+                    <td> <button type="button">{{ include('utilisateurbloque/_bloque_form.html.twig') }}</button> </td>
+                    {% endif %}
+                {% elseif ami.expediteur ==myUsername and ami.etatdemande==1%}
+                <td> {{ ami.destinataire }} </td>
+                <td> {{ include('amis/_delete_form.html.twig') }} </td>
+                    {% set isBlocked=false %}
+                    {% set blockedMe=false %}
+                    {% for uBloque in uBloques %}
+                    {% if uBloque.utilisateur==ami.expediteur and uBloque.abloque==ami.destinataire %}
+                        <td> <button type="button">{{ include('utilisateurbloque/_delete_form.html.twig') }}</button> </td>
+                        {% set isBlocked=true %}
+                    {% endif %}
+                        {% if uBloque.utilisateur==ami.destinataire and uBloque.abloque==ami.expediteur %}
+                            {% set blockedMe=true %}
+                        {% endif %}
+                    {% endfor%}
+                    {% if isBlocked==false and blockedMe==false %}
+                    <td><a href="{{ path('openChat',{'friend':ami.destinataire,'me':myUsername}) }}" class="btn btn-info">Chat</a></td>
+                    <td> <button type="button">{{ include('utilisateurbloque/_bloque_form.html.twig') }}</button> </td>
+                    {% endif %}
+                {% endif %}
+
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Vous n'avez pas encore ajoutée d'amis</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+
+</div>
+
+<div class="row mb-5 ">
+    <div class="col-4 align-self-start mr-5 ml-2">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Demande envoyées :</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for ami in amis %}
+                <tr>
+                    <!--{/* % if app.session.has('user') % */}-->
+                    {% if ami.expediteur ==myUsername and ami.etatdemande==0%}
+                        <td> {{ ami.destinataire }} </td>
+                        <td> {{ include('amis/_annuler_form.html.twig') }} </td>
+                    {% endif %}
+
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">Vous n'avez pas encore ajoutée d'amis</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-4 align-self-start ml-5">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Demande reçues :</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for ami in amis %}
+                <tr>
+                    <!--{/* % if app.session.has('user') % */}-->
+                    {% if ami.destinataire == myUsername and ami.etatdemande==0%}
+                        <td> {{ ami.expediteur }} </td>
+                        <td> {{ include('amis/_accepter_form.html.twig') }} </td>
+                    {% endif %}
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">Vous n'avez pas encore ajoutée d'amis</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js "></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js "></script>
+    <script>
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#hi tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+{% endblock %}

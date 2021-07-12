@@ -1,0 +1,165 @@
+{% extends 'frontCoach.html.twig' %}
+
+{% block slider %}
+{% endblock %}
+{% block change %}
+{{ form_start(form,{attr: {novalidate: 'novalidate'}}) }}
+<link rel="stylesheet" href="{{ asset('back/css/style.css') }}">
+<link rel="stylesheet" href="{{ asset('front/Rainbow.css') }}">
+
+<section class="center-div" >
+<div class="col-md-6 grid-margin stretch-card ">
+<div class="card table1"  style="border-style: groove;border-color: #8CD2E5;" >
+    <div class="card-body">
+        <form class="forms-sample">
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Nom Event</label>
+                <div class="col-sm-9">
+                    <div class="col-md-8">{{ form_errors(form.nomEvent)}}{{ form_widget(form.nomEvent)}}</div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Date Debut</label>
+                <div class="col-sm-9">
+                    <div class="col-md-5">{{ form_errors(form.dateDebut)}}{{ form_widget(form.dateDebut)}}</div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Date Fin</label>
+                <div class="col-sm-9">
+                    <div class="col-md-5">{{ form_errors(form.dateFin)}}{{ form_widget(form.dateFin)}}</div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Heure Debut</label>
+                <div class="col-sm-9">
+                    <div class="col-md-5">{{ form_errors(form.heureDebut)}}{{ form_widget(form.heureDebut)}}</div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Heure Fin</label>
+                <div class="col-sm-9">
+                    <div class="col-md-5">{{ form_errors(form.heureFin)}}{{ form_widget(form.heureFin)}}</div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Nombre des Participants</label>
+                <div class="col-sm-9">
+                    <img src="" id="pic" >
+                    <div class="col-md-5">{{ form_errors(form.nbParticipant)}}{{ form_widget(form.nbParticipant)}}</div>
+                </div>
+            </div>
+            <div class="col-xl">
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Participation</label>
+                        <div class="form-check" >
+                            <div>{{ form_errors(form.participation )}}</div>
+                            {{ form_widget(form.participation )}}
+                            {#  {% for child in form.participation %}
+                                <div class="participation">
+                                    {{- form_widget(child) -}}
+                                    {{- form_label(child, null) -}}
+                                </div>
+                            {% endfor %}#}
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Description</label>
+                <div class="col-sm-auto">
+                    <div class="col-xl">{{ form_errors(form.description)}}{{ form_widget(form.description)}}</div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Catégorie Event</label>
+                <div class="col-md-4" >
+                    <div class="col-xl">{{ form_errors(form.idCat)}}{{ form_widget(form.idCat,{'id': 'ddlViewBy'} )}}</div>
+                </div>
+                <div class="col-md-6" style="margin-left: 150px" >
+                    <script>var dict = new Array(); var dict2 = new Array();</script>
+                    {% set count = 0 %}
+                    {% for categorieevent in categorieevents %}
+                        {% set count = count + 1 %}
+                        {#  set arr={'{{ event.idCat.getnom }}':'{{ event.idCat.getimage }}'} %}#}
+                        <script>
+                            dict[{{ categorieevent.getnom |json_encode() |raw  }}] = {{ categorieevent.getimage |json_encode() |raw }};
+                            dict2[{{ categorieevent.getnom |json_encode() |raw  }}] = {{ categorieevent.getdescription |json_encode() |raw }};
+                        </script>
+
+                    {% endfor %}
+
+                    <div style="margin-top: 40px;border-style: groove;padding: 10px; margin-bottom: 40px" >
+                    <label class=" col-form-label">Image:</label>
+                    <img id="catimg" src=" " height="50px" width="50px" />
+                    <br>
+                    <label class=" col-form-label" id="catdesc"></label>
+                    </div>
+                    <script >
+                        var e = document.getElementById("ddlViewBy");
+                        function show() {
+                            var text = e.options[e.selectedIndex].text;
+                            document.getElementById("catimg").src = "https://"+dict[text];
+                            document.getElementById("catdesc").innerHTML  ="Description:"+dict2[text];
+                        }
+                        e.onchange=show;
+                        show();
+
+
+                    </script>
+                </div>
+            </div>
+
+                <script>
+                    var thisIsAnObject = 'test';
+                    var w = window.open("{{ path('event_map') }}");
+                    w.myVariable = thisIsAnObject;
+                    function setValue(myVal) {
+
+                        document.getElementById('Filename1').value = myVal;
+
+                    }
+                </script>
+                <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Localiser</label>
+                    <div class="col-md-7">{{ form_errors(form.map)}}{{ form_widget(form.map, { 'id': 'Filename1' } ,{ 'readonly':'readonly' })}}
+                        <script language="javascript" type="text/javascript">
+                            function OpenPopupCenter(pageURL, title, w, h) {
+                                var left = (screen.width - w) / 2;
+                                var top = (screen.height - h) / 4;  // for 25% - devide by 4  |  for 33% - devide by 3
+                                var targetWin = window.open(pageURL, title, 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
+                            }
+                        </script>
+                        <a style="margin-left: 200px; margin-top: 10px" class="btn btn-primary mr-2"
+                           onclick="OpenPopupCenter('{{ path('event_map') }}', 'TEST!?', 800, 600);">Map</a>
+                    </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-3 col-form-label">Votre Localisation</label>
+                    <div class="col-md-4">{{ form_errors(form.imageFile)}}{{ form_widget(form.imageFile)}}</div>
+            </div>
+
+
+
+
+                <div class="form-group row" style="margin-left: 200px">
+                    <label class="col-md-1 col-form-label"></label>
+                            <button class="btn btn-primary mr-2">{{ button_label|default('Save') }}</button>
+                            <a class="btn btn-light"href="{{ path('event_index') }}">Cancel and return</a></div>
+
+
+           <div style="display:none">{{ form_errors(form.idCoach)}}{{ form_widget(form.idCoach)}}</div>
+            {{ form_rest(form)}}
+
+
+
+        </form>
+        <link rel="stylesheet" href="{{ asset('front/Event.css') }}">
+    </div>
+</div>
+</div>
+</section>
+{{ form_end(form) }}
+    <link rel="stylesheet" href="{{ asset('front/style.css') }}">
+{% endblock %}

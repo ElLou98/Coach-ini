@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Amis{% endblock %}
+
+{% block body %}
+    <h1>Create new Amis</h1>
+
+    {{ include('amis/_form.html.twig') }}
+
+    <a href="{{ path('amis_index') }}">back to list</a>
+{% endblock %}

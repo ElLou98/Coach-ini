@@ -1,0 +1,56 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block title %}ReviewClient{% endblock %}
+
+{% block change%}
+
+
+
+    <table class="table table-responsive" style="margin-left:auto;margin-right:auto;">
+        <tbody>
+
+
+        <tr>
+            <td><h5>Client Name</h5></td>
+            <td>{{ review_client.nomClientReview }}</td>
+        </tr>
+        <tr>
+            <td><h5>Review Date&Time</h5></td>
+            <td>{{ review_client.dateReview }}</td>
+        </tr>
+        <tr>
+            <td><h5>Rating</h5></td>
+            <td>{{ review_client.rating }}</td>
+        </tr>
+        <tr>
+            <td><h5>Coach Name</h5></td>
+            <td>{{ review_client.nomCoachReview }}</td>
+        </tr>
+
+        <tr>
+            <td><h5>Review Description</h5></td>
+            <td>{{ review_client.descriptionReview }}</td>
+
+        </tr>
+        <tr>
+            <td>
+                <div style='display:inline-block;margin-left:10px; '>
+                    <a href="{{ path('review_client_index_back') }}"class="btn btn-primary">Reviews List</a>
+
+                </div>
+                <div style='display:inline-block;margin-left:10px; '>
+                    {{ include('review_client/_deleteback_form.html.twig') }}
+                </div>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+
+
+
+
+
+
+
+{% endblock %}
