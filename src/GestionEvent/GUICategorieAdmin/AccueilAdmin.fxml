@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: EEEEEE;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GestionEvent.GUICategorieAdmin.AccueilAdminController">
+   <children>
+      <Line endX="-72.97378540039062" endY="639.2999877929688" layoutX="390.0" layoutY="83.0" startX="-72.97378540039062" startY="-82.99999237060547" />
+      <Line endX="144.52621459960938" endY="-27.5714111328125" layoutX="149.0" layoutY="228.0" startX="-151.00001525878906" startY="-27.571426391601562" />
+      <ImageView fx:id="logo_view" fitHeight="222.0" fitWidth="270.0" layoutX="-2.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Icons/main.png" />
+         </image>
+      </ImageView>
+      <ComboBox fx:id="gestionCompteClientComboBox" layoutX="10.0" layoutY="240.0" prefHeight="40.0" prefWidth="309.0" promptText="Gestion des comptes clients" stylesheets="@../FontAndStylesEvent/combobox.css" />
+      <ComboBox fx:id="gestionCompteClientComboBox1" layoutX="10.0" layoutY="288.0" prefHeight="40.0" prefWidth="309.0" promptText="Gestion des comptes coachs" stylesheets="@../FontAndStylesEvent/combobox.css" />
+      <ComboBox fx:id="gestionCompteClientComboBox2" layoutX="10.0" layoutY="340.0" prefHeight="40.0" prefWidth="309.0" promptText="Gestion des catégories de sports" stylesheets="@../FontAndStylesEvent/combobox.css" />
+      <ComboBox fx:id="gestionCompteClientComboBox3" layoutX="10.0" layoutY="386.0" prefHeight="40.0" prefWidth="309.0" promptText="Gestion des  réclamations" stylesheets="@../FontAndStylesEvent/combobox.css" />
+      <ComboBox fx:id="GestCatEv" layoutX="10.0" layoutY="436.0" prefHeight="40.0" prefWidth="309.0" promptText="Gestion catégories des evénements" stylesheets="@../FontAndStylesEvent/combobox.css" />
+      <Label fx:id="id" layoutX="10.0" layoutY="12.0" />
+      <ComboBox fx:id="GestCat" layoutX="10.0" layoutY="492.0" prefHeight="40.0" prefWidth="309.0" promptText="Gestion des evénements" stylesheets="@../FontAndStylesEvent/combobox.css" />
+      <Text layoutX="16.0" layoutY="573.0" onMouseClicked="#Gest_Event" strokeType="OUTSIDE" strokeWidth="0.0" text="Gestion des evénements" />
+      <Text layoutX="16.0" layoutY="626.0" onMouseClicked="#Gest_Cat" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter catégories des evénements" />
+      <BorderPane fx:id="border" layoutX="376.0" layoutY="36.0" prefHeight="608.0" prefWidth="835.0" />
+      <Text layoutX="16.0" layoutY="671.0" onMouseClicked="#Trai_cat" strokeType="OUTSIDE" strokeWidth="0.0" text="Traiterter catégories des evénements" />
+   </children>
+</AnchorPane>

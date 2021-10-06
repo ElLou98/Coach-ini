@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'Bebas';
+    src: url('Bebas-Regular.ttf');
+}
+
+.text {
+    -fx-font-family: "Bebas";
+	-fx-font-size: 32px;
+	-fx-fill: #304D6D;
+} 

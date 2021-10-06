@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: EEEEEE;" stylesheets="@comboBox.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AccueilAdminController">
+   <children>
+      <Line endX="-72.97378540039062" endY="639.2999877929688" layoutX="366.0" layoutY="83.0" startX="-72.97378540039062" startY="-82.99999237060547" />
+      <Line endX="144.52621459960938" endY="-27.5714111328125" layoutX="149.0" layoutY="228.0" startX="-151.00001525878906" startY="-27.571426391601562" />
+      <ImageView fx:id="logo_view" fitHeight="222.0" fitWidth="270.0" layoutX="-2.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/logocoach.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="557.0" layoutY="20.0" prefHeight="86.0" prefWidth="413.0" stylesheets="@Titre64px.css" text="TABLEAU DE BORD">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="Combo_GestionCategorieAdmin" layoutX="10.0" layoutY="340.0" onAction="#Handel_combo_gestionCateg_Admin" prefHeight="40.0" prefWidth="275.0" promptText="Gestion des catégories de sports" stylesheets="@comboBox.css" />
+      <ComboBox fx:id="GestiondesEvent" layoutX="10.0" layoutY="436.0" onAction="#Handel_combo_gestionEvent_Admin" prefHeight="40.0" prefWidth="275.0" promptText="Gestion des Evénements" stylesheets="@comboBox.css" />
+      <Label layoutX="400.0" layoutY="202.0" stylesheets="@sous-titres.css" text="Nombre de compte crée par mois" />
+      <Label layoutX="909.0" layoutY="202.0" stylesheets="@sous-titres.css" text="Nombre de coachs/clients" />
+      <LineChart fx:id="chart1" layoutX="381.0" layoutY="250.0" prefHeight="73.0" prefWidth="188.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </LineChart>
+      <TableView fx:id="tableau_compte" layoutX="308.0" layoutY="397.0" prefHeight="267.0" prefWidth="942.0">
+        <columns>
+          <TableColumn fx:id="cl_userName" prefWidth="152.2666015625" text="Nom D'utilisateur" />
+          <TableColumn fx:id="cl_nom" minWidth="0.0" prefWidth="97.06661987304688" text="Nom" />
+            <TableColumn fx:id="cl_prenom" prefWidth="106.93338012695312" text="Prenom" />
+            <TableColumn fx:id="cl_age" prefWidth="60.53338623046875" text="Age" />
+            <TableColumn fx:id="cl_email" prefWidth="168.800048828125" text="Adresse Email" />
+            <TableColumn fx:id="cl_password" minWidth="0.0" prefWidth="111.199951171875" text="Mot de Passe" />
+            <TableColumn fx:id="cl_numTel" minWidth="0.0" prefWidth="169.33349609375" text="Numéro de Téléphone" />
+            <TableColumn fx:id="cl_type" prefWidth="75.0" text="Type" />
+        </columns>
+      </TableView>
+      <Label fx:id="id" layoutX="10.0" layoutY="12.0" />
+      <ComboBox fx:id="Combo_GestionRevuesAdmin" layoutX="10.0" layoutY="490.0" onAction="#Handel_combo_gestionRevue_Admin" prefHeight="40.0" prefWidth="275.0" promptText="Gestion des Revues" stylesheets="@comboBox.css" />
+      <BorderPane fx:id="border" layoutX="133.0" layoutY="-76.0" prefHeight="713.0" prefWidth="976.0" />
+      <ComboBox fx:id="GestionCatEvent" layoutX="10.0" layoutY="546.0" onAction="#Handel_combo_gestionCatEvent_Admin" prefHeight="40.0" prefWidth="275.0" promptText="Gestion des Catégorie Event" stylesheets="@comboBox.css" />
+      <Label layoutX="19.0" layoutY="387.0" onMouseClicked="#dirigerReclamation" prefHeight="40.0" prefWidth="275.0" text="Gestion des réclamations" />
+      <Button fx:id="btn_csv" layoutX="1019.0" layoutY="679.0" mnemonicParsing="false" onAction="#writeCSV" prefHeight="32.0" prefWidth="230.0" stylesheets="@sous-titres.css" text="Télécharger les données" />
+      <PieChart fx:id="chartPie" layoutX="901.0" layoutY="240.0" prefHeight="150.0" prefWidth="172.0" />
+   </children>
+</AnchorPane>

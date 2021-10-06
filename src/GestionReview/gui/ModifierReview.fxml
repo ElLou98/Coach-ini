@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.Rating?>
+
+<AnchorPane id="AnchorPane" focusTraversable="true" prefHeight="264.0" prefWidth="493.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GestionReview.gui.ModifierReviewController">
+   <children>
+      <Label fx:id="current_cl_modifer_name" layoutX="28.0" layoutY="20.0" stylesheets="@../../../../../../Desktop/PI-Dev-Integration/src/gui/sous-titres.css" text="Current_client_name">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Rating fx:id="current_cl_modifer_rating" cache="true" layoutX="21.0" layoutY="52.0" partialRating="true" rating="3.0">
+         <effect>
+            <Glow level="1.0" />
+         </effect>
+      </Rating>
+      <JFXTextField fx:id="current_cl_review" alignment="TOP_LEFT" focusColor="#468ac6" layoutX="28.0" layoutY="105.0" onAction="#current_cl_modifer_text" prefHeight="82.0" prefWidth="437.0" promptText="Your review here ....">
+         <font>
+            <Font name="System Italic" size="18.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton fx:id="btn_current_cl_modifer" buttonType="RAISED" contentDisplay="CENTER" layoutX="92.0" layoutY="206.0" onAction="#Modifier_review_client" prefHeight="44.0" prefWidth="138.0" ripplerFill="#008bee" style="-fx-background-color: #ffffff;" text="Submit">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnCancel_current_cl_modifer" buttonType="RAISED" cancelButton="true" contentDisplay="CENTER" layoutX="247.0" layoutY="206.0" onAction="#Cancel_current_cl_modifer" prefHeight="44.0" prefWidth="138.0" ripplerFill="#008bee" style="-fx-background-color: #ffffff;" text="Cancel">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

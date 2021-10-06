@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="border_id" prefHeight="620.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GestionEvent.GUIAccueilClient.Afficher_Event_ClientController">
+   <top>
+      <Label stylesheets="@../FontAndStylesEvent/Titre.css" text="Afficher les evenements" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+   </top>
+   <center>
+      <ListView fx:id="event_list" onMouseClicked="#getSelected" prefHeight="426.0" prefWidth="585.0" stylesheets="@../FontAndStylesEvent/txt-tb.css" BorderPane.alignment="CENTER" />
+   </center>
+   <right>
+      <ImageView fx:id="image" fitHeight="113.0" fitWidth="193.0" onMouseClicked="#download" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+         <image>
+            <Image url="@../Icons/main.png" />
+         </image>
+      </ImageView>
+   </right>
+   <bottom>
+      <HBox prefHeight="54.0" prefWidth="700.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="detail_id1" mnemonicParsing="false" onAction="#Back" prefHeight="26.0" prefWidth="95.0" style="-fx-background-color: #1b6cd7;" text="Back" textFill="WHITE">
+               <HBox.margin>
+                  <Insets left="200.0" right="180.0" top="15.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="detail_id" mnemonicParsing="false" onAction="#Detail" prefHeight="26.0" prefWidth="95.0" style="-fx-background-color: #1b6cd7;" text="Détailler" textFill="WHITE">
+               <HBox.margin>
+                  <Insets left="120.0" right="300.0" top="15.0" />
+               </HBox.margin>
+            </Button>
+            <TextField fx:id="lookup" onAction="#LookUp" onKeyTyped="#test" prefHeight="26.0" prefWidth="140.0" promptText="Chercher..">
+               <HBox.margin>
+                  <Insets left="100.0" top="15.0" />
+               </HBox.margin>
+            </TextField>
+            <ImageView fitHeight="27.0" fitWidth="31.0" onMouseClicked="#pdf_Download" pickOnBounds="true" preserveRatio="true">
+               <HBox.margin>
+                  <Insets top="15.0" />
+               </HBox.margin>
+               <image>
+                  <Image url="@../Icons/pdf.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+   </bottom>
+   <left>
+      <Label fx:id="space" prefHeight="16.0" prefWidth="144.0" BorderPane.alignment="CENTER" />
+   </left>
+</BorderPane>

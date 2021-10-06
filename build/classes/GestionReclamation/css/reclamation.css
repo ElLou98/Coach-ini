@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'Louis George Cafe Bold';
+    src: url('LouisGeorgeCafeBold.ttf');
+}
+.text {
+    -fx-font-family: "Louis George Cafe Bold";
+	-fx-font-size: 14.5px;
+	
+	
+}

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="480.0" prefWidth="640.0" style="-fx-background-color: F5F5F5;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GestionEvent.GUIAccueilCoach.ModifierEventCoachController">
+   <children>
+      <Label layoutX="188.0" layoutY="7.0" prefHeight="41.0" prefWidth="264.0" stylesheets="@../FontAndStylesEvent/titrebig.css" text="Ajouter un evenement">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+      </Label>
+      <Label layoutX="59.0" layoutY="64.0" stylesheets="@../FontAndStylesEvent/sous-titres_1.css" text="Nom de L'évènement" />
+      <TextField fx:id="tfNom" layoutX="37.0" layoutY="91.0" prefHeight="26.0" prefWidth="210.0" />
+      <Label layoutX="81.0" layoutY="128.0" stylesheets="@../FontAndStylesEvent/sous-titres_1.css" text="Date de début" />
+      <DatePicker fx:id="date_Debut" layoutX="38.0" layoutY="151.0" />
+      <Label layoutX="93.0" layoutY="185.0" stylesheets="@../FontAndStylesEvent/sous-titres_1.css" text="Date de fin" />
+      <DatePicker fx:id="date_Fin" layoutX="39.0" layoutY="208.0" />
+      <Label layoutX="329.0" layoutY="117.0" stylesheets="@../FontAndStylesEvent/sous-titres_1.css" text="Heure de début">
+         <font>
+            <Font name="System Italic" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="329.0" layoutY="185.0" stylesheets="@../FontAndStylesEvent/sous-titres_1.css" text="Heure de fin">
+         <font>
+            <Font name="System Italic" size="13.0" />
+         </font>
+      </Label>
+      <RadioButton fx:id="radio_Ligne" layoutX="168.0" layoutY="288.0" mnemonicParsing="false" prefHeight="16.0" prefWidth="25.0" text="En Ligne" textFill="TRANSPARENT">
+         <toggleGroup>
+            <ToggleGroup fx:id="tg" />
+         </toggleGroup></RadioButton>
+      <Label layoutX="74.0" layoutY="324.0" stylesheets="@../FontAndStylesEvent/sous-titres_1.css" text="Nombre de participants :" />
+      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="45.0" layoutY="323.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Icons/crowd_1.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="14.0" layoutY="394.0" stylesheets="@../FontAndStylesEvent/sous-titres_1.css" text="Description" />
+      <TextArea fx:id="description" layoutX="118.0" layoutY="376.0" prefHeight="54.0" prefWidth="367.0" />
+      <TextField fx:id="nb_Participants" layoutX="289.0" layoutY="322.0" prefHeight="26.0" prefWidth="62.0" promptText=".........." />
+      <Button fx:id="btn_annuler" cancelButton="true" layoutX="169.0" layoutY="446.0" mnemonicParsing="false" onAction="#End_event" prefHeight="28.0" prefWidth="73.0" style="-fx-border-color: #1B6CD7;" text="Annuler" textFill="#1b6cd7" />
+      <ComboBox fx:id="combo_Box" layoutX="324.0" layoutY="138.0" onAction="#select" prefHeight="26.0" prefWidth="109.0" />
+      <ComboBox fx:id="combo_Box1" layoutX="324.0" layoutY="208.0" onAction="#select" prefHeight="26.0" prefWidth="109.0" />
+      <Separator layoutX="282.0" layoutY="126.0" orientation="VERTICAL" prefHeight="119.0" prefWidth="5.0" />
+      <Button layoutX="392.0" layoutY="447.0" mnemonicParsing="false" onAction="#Modifier_Event" style="-fx-background-color: #1b6cd7;" text="Modifier" textFill="WHITE" />
+            <Button fx:id="btn_localiser" layoutX="512.0" layoutY="180.0" mnemonicParsing="false" onAction="#Localiser" stylesheets="@../FontAndStylesEvent/sous-titres_1.css" text="Localiser" />
+      <ImageView fx:id="mapImage" fitHeight="60.0" fitWidth="62.0" layoutX="526.0" layoutY="96.0" onMouseClicked="#zoom" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Icons/map.png" />
+         </image>
+      </ImageView>
+      <Text fx:id="Location" layoutX="463.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="175.73876333236694">
+         <font>
+            <Font size="8.0" />
+         </font></Text>
+      <Label layoutX="279.0" layoutY="257.0" stylesheets="@../FontAndStylesEvent/sous-titres_1.css" text="En Personne" />
+      <RadioButton fx:id="radio_Personne" layoutX="301.0" layoutY="288.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="18.0" text="En Personne" textFill="TRANSPARENT" toggleGroup="$tg" />
+      <Label layoutX="149.0" layoutY="257.0" stylesheets="@../FontAndStylesEvent/sous-titres_1.css" text="En Ligne" />
+      <ImageView fitHeight="26.0" fitWidth="24.0" layoutX="118.0" layoutY="253.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Icons/world-grid.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="28.0" fitWidth="24.0" layoutX="252.0" layoutY="253.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Icons/crowd(1).png" />
+         </image>
+      </ImageView>
+      <Button layoutX="358.0" layoutY="68.0" mnemonicParsing="false" onAction="#QR" stylesheets="@../FontAndStylesEvent/sous-titres_1.css" text="QR" />
+      <Button fx:id="btn_Cat" layoutX="476.0" layoutY="319.0" mnemonicParsing="false" onAction="#Categorie" stylesheets="@../FontAndStylesEvent/sous-titres_1.css" text="Choisir Catégorie" />
+      <ImageView fx:id="CatImage" fitHeight="83.0" fitWidth="54.0" layoutX="530.0" layoutY="248.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Icons/categorie.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="26.0" fitWidth="24.0" layoutX="415.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Icons/qr-code.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

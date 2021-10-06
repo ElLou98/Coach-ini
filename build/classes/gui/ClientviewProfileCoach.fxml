@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import org.controlsfx.control.Rating?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="gui.ClientviewProfileCoachController">
+   <children>
+      <AnchorPane id="AnchorPane" fx:id="detail" layoutX="10.0" layoutY="10.0" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: EEEEEE;" stylesheets="@Titre.css">
+         <children>
+            <TextField fx:id="nom" layoutX="626.0" layoutY="104.0" prefHeight="31.0" prefWidth="28.0" />
+            <Text fill="#5bc0eb" layoutX="527.0" layoutY="312.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Déscription" wrappingWidth="162.99999526143074">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <TextArea fx:id="Description" layoutX="486.0" layoutY="324.0" prefHeight="80.0" prefWidth="256.0" />
+            <Text fill="#5bc0eb" layoutX="771.0" layoutY="445.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Catégorie" wrappingWidth="136.99999824166298">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <Text fill="#5bc0eb" layoutX="341.0" layoutY="440.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Détail" wrappingWidth="79.92967963218689">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <ChoiceBox fx:id="categorie" layoutX="758.0" layoutY="454.0" prefWidth="150.0" />
+            <TextArea fx:id="Detail" layoutX="329.0" layoutY="446.0" prefHeight="44.0" prefWidth="123.0" />
+            <Text fill="#5bc0eb" layoutX="574.0" layoutY="506.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rating" wrappingWidth="99.99999092519283">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <Button fx:id="photo" layoutX="575.0" layoutY="173.0" mnemonicParsing="false" onAction="#OpenPhoto" prefHeight="31.0" prefWidth="32.0" style="-fx-alignment: 2982FF;" text="...." textFill="#2982ff">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Button>
+            <ImageView fx:id="imageuser" fitHeight="154.0" fitWidth="150.0" layoutX="551.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@avatar.png" />
+               </image>
+            </ImageView>
+            <Rating fx:id="rating" layoutX="533.0" layoutY="518.0" />
+            <Separator layoutX="486.0" layoutY="468.0" prefHeight="11.0" prefWidth="256.0" />
+            <ImageView fitHeight="48.0" fitWidth="80.0" layoutX="618.0" layoutY="170.0" onMouseClicked="#capture" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons8-capture-d'écran-50.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="btn_view_coach_rating" layoutX="513.0" layoutY="585.0" mnemonicParsing="false" onAction="#view_coach_rating" prefHeight="74.0" prefWidth="187.0" stylesheets="@sous-titres.css" text="Client Ratings" />
+            <Label fx:id="name1" layoutX="538.0" layoutY="241.0" prefHeight="31.0" prefWidth="223.0" text="Label" />
+            <ImageView fitHeight="62.0" fitWidth="80.0" layoutX="1182.0" layoutY="636.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@back.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

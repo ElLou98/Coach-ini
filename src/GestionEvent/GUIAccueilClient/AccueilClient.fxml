@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: EEEEEE;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GestionEvent.GUIAccueilClient.AccueilClientController">
+   <children>
+      <GridPane fx:id="root" layoutX="356.0" layoutY="312.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+      </GridPane>
+      <ImageView fitHeight="91.0" fitWidth="123.0" layoutX="14.0" layoutY="251.0" pickOnBounds="true" preserveRatio="true" />
+      <Line endX="1183.5" layoutX="97.0" layoutY="92.0" startX="-100.0" />
+      <Label layoutX="39.0" layoutY="33.0" prefHeight="35.0" prefWidth="161.0" stylesheets="@../FontAndStylesEvent/Titre.css" text="Trouver un coach">
+         <font>
+            <Font name="Comic Sans MS Bold" size="24.0" />
+         </font>
+      </Label>
+      <Line endX="13.5" endY="-55.70710754394531" layoutX="213.33" layoutY="147.0" startX="13.5" startY="-147.0" />
+      <Label layoutX="254.0" layoutY="33.0" onMouseClicked="#TrouverClient" prefHeight="35.0" prefWidth="155.0" stylesheets="@../FontAndStylesEvent/Titre.css" text="TROUVER un EVENT">
+         <font>
+            <Font name="Comic Sans MS Bold" size="24.0" />
+         </font>
+      </Label>
+      <Line endX="13.5" endY="-55.70710754394531" layoutX="426.66" layoutY="147.0" startX="13.5" startY="-147.0" />
+      <Line endX="13.5" endY="-55.70710754394531" layoutX="639.99" layoutY="147.0" startX="13.5" startY="-147.0" />
+      <Label layoutX="894.0" layoutY="33.0" prefHeight="35.0" prefWidth="161.0" stylesheets="@../FontAndStylesEvent/Titre.css" text="GERER MON COMPTE">
+         <font>
+            <Font name="Comic Sans MS Bold" size="24.0" />
+         </font>
+      </Label>
+      <Line endX="13.5" endY="-55.70710754394531" layoutX="853.33" layoutY="147.0" startX="13.5" startY="-147.0" />
+      <Label layoutX="704.0" layoutY="33.0" prefHeight="35.0" prefWidth="115.0" stylesheets="@../FontAndStylesEvent/Titre.css" text="RECLAMATION">
+         <font>
+            <Font name="Comic Sans MS Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="460.0" layoutY="33.0" prefHeight="35.0" prefWidth="173.0" stylesheets="@../FontAndStylesEvent/Titre.css" text="MESSAGERIE &amp; amies">
+         <font>
+            <Font name="Comic Sans MS Bold" size="24.0" />
+         </font>
+      </Label>
+      <Line endX="13.5" endY="-55.70710754394531" layoutX="1066.65" layoutY="147.0" startX="13.5" startY="-147.0" />
+      <Label layoutX="1115.0" layoutY="33.0" prefHeight="35.0" prefWidth="138.0" stylesheets="@../FontAndStylesEvent/Titre.css" text="se dEconnecter">
+         <font>
+            <Font name="Comic Sans MS Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="1188.0" layoutY="14.0" prefHeight="18.0" prefWidth="88.0" />
+      <BorderPane fx:id="border" layoutY="93.0" prefHeight="627.0" prefWidth="1282.0" />
+   </children>
+</AnchorPane>

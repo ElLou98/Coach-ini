@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import org.controlsfx.control.Rating?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.RechercheCoachController">
+   <children>
+      <ListView fx:id="listCoach" layoutX="37.0" layoutY="106.0" prefHeight="583.0" prefWidth="676.0" />
+      <TextField fx:id="searchCoach" layoutX="37.0" layoutY="50.0" onKeyTyped="#search" prefHeight="31.0" prefWidth="615.0" />
+      <ImageView fitHeight="31.0" fitWidth="39.0" layoutX="674.0" layoutY="50.0" onMouseClicked="#searchbyName" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@search.png" />
+         </image>
+      </ImageView>
+      <Text fx:id="desc1" fill="#5bc0eb" layoutX="927.0" layoutY="336.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Déscription" wrappingWidth="162.99999526143074">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <Text fx:id="cat1" fill="#5bc0eb" layoutX="1150.0" layoutY="482.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Catégorie" wrappingWidth="136.99999824166298">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <Text fx:id="det1" fill="#5bc0eb" layoutX="756.0" layoutY="483.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Détail" wrappingWidth="79.92967963218689">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <Text fx:id="rat1" fill="#5bc0eb" layoutX="952.0" layoutY="564.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rating" wrappingWidth="99.99999092519283">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <ImageView fx:id="imageuser" fitHeight="154.0" fitWidth="150.0" layoutX="929.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@avatar.png" />
+         </image>
+      </ImageView>
+      <Rating fx:id="rating" layoutX="911.0" layoutY="576.0" />
+      <Separator fx:id="bar1" layoutX="864.0" layoutY="526.0" prefHeight="11.0" prefWidth="256.0" />
+      <Label fx:id="name1" layoutX="911.0" layoutY="254.0" prefHeight="31.0" prefWidth="223.0" text="Label" />
+      <ImageView fx:id="backk" fitHeight="68.0" fitWidth="91.0" layoutX="1195.0" layoutY="630.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@back.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="desc" layoutX="975.0" layoutY="360.0" text="Label" />
+      <Label fx:id="det" layoutX="778.0" layoutY="510.0" text="Label" />
+      <Label fx:id="cat" layoutX="1194.0" layoutY="510.0" text="Label" />
+      <Button fx:id="btn_revues_coach_client_ADEM" layoutX="919.0" layoutY="633.0" mnemonicParsing="false" onAction="#Handel_revues_coach_client_ADEM" text="Revues du Coach ">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <stylesheets>
+            <URL value="@../../../../../Desktop/PI-Dev-Integration/src/gui/sous-titres.css" />
+            <URL value="@sous-titres.css" />
+         </stylesheets>
+      </Button>
+   </children>
+</AnchorPane>

@@ -1,0 +1,92 @@
+#idajout,#Ajouter_id,#IDajout,#Btn {
+-fx-padding: 8 15 15 15;
+    -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+    -fx-background-radius: 8;
+    -fx-background-color: 
+        linear-gradient(from 0% 93% to 0% 100%, #7ebcea 0%, #7ebcea 100%),
+        #7ebcea,
+        #7ebcea,
+        radial-gradient(center 50% 50%, radius 100%, #7ebcea, #7ebcea);
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+#idModifier,#Modifier_id,#back,#btn,#btnactu,#btnafficheAct,#btnmodif,#btnsupp {
+-fx-padding: 8 15 15 15;
+    -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+    -fx-background-radius: 8;
+    -fx-background-color: 
+        linear-gradient(from 0% 93% to 0% 100%, #7ebcea 0%, #7ebcea 100%),
+        #7ebcea,
+        #7ebcea,
+        radial-gradient(center 50% 50%, radius 100%, #7ebcea, #7ebcea);
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+#idsupprim{
+-fx-padding: 8 15 15 15;
+    -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+    -fx-background-radius: 8;
+    -fx-background-color: 
+        linear-gradient(from 0% 93% to 0% 100%, #7ebcea 0%, #7ebcea 100%),
+        #7ebcea,
+        #7ebcea,
+        radial-gradient(center 50% 50%, radius 100%, #7ebcea, #7ebcea);
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+#IDmodif{
+-fx-padding: 8 15 15 15;
+    -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+    -fx-background-radius: 8;
+    -fx-background-color: 
+        linear-gradient(from 0% 93% to 0% 100%, #7ebcea 0%, #7ebcea 100%),
+        #7ebcea,
+        #7ebcea,
+        radial-gradient(center 50% 50%, radius 100%, #7ebcea, #7ebcea);
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+#btn_annuler{
+-fx-padding: 8 15 15 15;
+    -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+    -fx-background-radius: 8;
+    -fx-background-color: 
+        linear-gradient(from 0% 93% to 0% 100%, #7ebcea 0%, #7ebcea 100%),
+        #7ebcea,
+        #7ebcea,
+        radial-gradient(center 50% 50%, radius 100%, #7ebcea, #7ebcea);
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+#btn_modifier{
+-fx-padding: 8 15 15 15;
+    -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+    -fx-background-radius: 8;
+    -fx-background-color: 
+        linear-gradient(from 0% 93% to 0% 100%, #7ebcea 0%, #7ebcea 100%),
+        #7ebcea,
+        #7ebcea,
+        radial-gradient(center 50% 50%, radius 100%, #7ebcea, #7ebcea);
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+
+#photo{
+-fx-padding: 8 15 15 15;
+    -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+    -fx-background-radius: 8;
+    -fx-background-color: 
+        linear-gradient(from 0% 93% to 0% 100%, #7ebcea 0%, #7ebcea 100%),
+        #7ebcea,
+        #7ebcea,
+        radial-gradient(center 50% 50%, radius 100%, #7ebcea, #7ebcea);
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}

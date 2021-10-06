@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1000.0" style="-fx-background-color: EEEEEE;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GestionReclamation.gui.ReclamationBackController">
+   <children>
+      <Label layoutX="305.0" layoutY="14.0" prefHeight="86.0" prefWidth="305.0" stylesheets="@../css/Titre64px.css" text="RECLAMATION">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <ScrollPane layoutY="228.0" prefHeight="494.0" prefWidth="1000.0">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <TableView fx:id="reclamationTableView" prefHeight="494.0" prefWidth="1000.0">
+                     <columns>
+                        <TableColumn fx:id="columnLogin" prefWidth="120.0" text="Utilisateur" />
+                        <TableColumn fx:id="columnReclamation" prefWidth="400.0" text="Réclamation" />
+                        <TableColumn fx:id="columnType" prefWidth="140.0" text="Type" />
+                        <TableColumn fx:id="columnDate" prefWidth="140.0" text="Date" />
+                        <TableColumn fx:id="columnEnCours" minWidth="0.0" prefWidth="90.0" text="En cours" />
+                        <TableColumn fx:id="columnTraite" prefWidth="90.0" text="Traité" />
+                     </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

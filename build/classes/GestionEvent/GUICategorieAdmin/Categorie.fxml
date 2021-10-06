@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GestionEvent.GUICategorieAdmin.CategorieController">
+   <children>
+      <TableView fx:id="table" layoutY="-2.0" prefHeight="480.0" prefWidth="701.0" stylesheets="@../FontAndStylesEvent/sous-titres.css">
+        <columns>
+          <TableColumn fx:id="col_Nom" prefWidth="126.0" text="Nom" />
+          <TableColumn fx:id="col_description" minWidth="0.0" prefWidth="479.0" text="Description" />
+            <TableColumn fx:id="col_Image" prefWidth="94.0" text="Image" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'Louis George Cafe Bold';
+    src: url('LouisGeorgeCafeBold.ttf');
+}
+.text {
+    -fx-font-family: "Louis George Cafe Bold";
+	-fx-font-size: 14.5px;
+	
+	
+}
+.combo-box-base {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-background-radius: 3px, 3px, 2px, 1px;
+}

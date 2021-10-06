@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: EEEEEE;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AccueilCoachController">
+   <children>
+      <GridPane fx:id="root" layoutX="356.0" layoutY="312.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+      </GridPane>
+      <ImageView fx:id="imageView" fitHeight="91.0" fitWidth="123.0" layoutX="14.0" layoutY="251.0" pickOnBounds="true" preserveRatio="true" />
+      <HBox fx:id="hBox" layoutX="1116.0" layoutY="306.0" prefHeight="72.0" prefWidth="149.0" />
+      <Line endX="1183.5" layoutX="97.0" layoutY="92.0" startX="-100.0" />
+      <Label layoutX="39.0" layoutY="33.0" onMouseClicked="#ProfileCoach" prefHeight="31.0" prefWidth="111.0" text="Mon profile">
+         <font>
+            <Font name="Comic Sans MS Bold" size="24.0" />
+         </font>
+         <stylesheets>
+            <URL value="@../../../../../Desktop/PI-Dev-Integration/src/gui/Titre.css" />
+            <URL value="@Titre.css" />
+         </stylesheets>
+      </Label>
+      <Line endX="13.5" endY="-55.70710754394531" layoutX="182.85" layoutY="147.0" startX="13.5" startY="-147.0" />
+      <Label layoutX="393.0" layoutY="33.0" onMouseClicked="#TraiterEvent" prefHeight="31.0" prefWidth="157.0" text="Traiter MES Event">
+         <font>
+            <Font name="Comic Sans MS Bold" size="24.0" />
+         </font>
+         <stylesheets>
+            <URL value="@../../../../../Desktop/PI-Dev-Integration/src/gui/Titre.css" />
+            <URL value="@Titre.css" />
+         </stylesheets>
+      </Label>
+      <Line endX="13.5" endY="-55.70710754394531" layoutX="548.55" layoutY="146.0" startX="13.5" startY="-147.0" />
+      <Line endX="13.5" endY="-55.70710754394531" layoutX="731.4" layoutY="146.0" startX="13.5" startY="-147.0" />
+      <Label layoutX="938.0" layoutY="33.0" onMouseClicked="#GestionCompte" prefHeight="31.0" prefWidth="164.0" text="gerer mon compte">
+         <font>
+            <Font name="Comic Sans MS Bold" size="24.0" />
+         </font>
+         <stylesheets>
+            <URL value="@../../../../../Desktop/PI-Dev-Integration/src/gui/Titre.css" />
+            <URL value="@Titre.css" />
+         </stylesheets>
+      </Label>
+      <Line endX="13.5" endY="-55.70710754394531" layoutX="914.25" layoutY="147.0" startX="13.5" startY="-147.0" />
+      <Label layoutX="781.0" layoutY="33.0" onMouseClicked="#dirigerReclamation" prefHeight="31.0" prefWidth="111.0" text="Reclamation">
+         <font>
+            <Font name="Comic Sans MS Bold" size="24.0" />
+         </font>
+         <stylesheets>
+            <URL value="@../../../../../Desktop/PI-Dev-Integration/src/gui/Titre.css" />
+            <URL value="@Titre.css" />
+         </stylesheets>
+      </Label>
+      <ImageView fx:id="img2" fitHeight="100.0" fitWidth="150.0" layoutX="273.0" layoutY="560.0" onMouseClicked="#basketball" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/basketball.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="img6" fitHeight="100.0" fitWidth="150.0" layoutX="1133.0" layoutY="560.0" onMouseClicked="#football" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/football.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="img1" fitHeight="100.0" fitWidth="150.0" layoutX="73.0" layoutY="560.0" onMouseClicked="#athteltisme" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/runner.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="img5" fitHeight="100.0" fitWidth="150.0" layoutX="933.0" layoutY="560.0" onMouseClicked="#natation" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/swimming-pool.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="img4" fitHeight="100.0" fitWidth="150.0" layoutX="713.0" layoutY="560.0" onMouseClicked="#tennis" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/tennis.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="img3" fitHeight="100.0" fitWidth="150.0" layoutX="493.0" layoutY="560.0" onMouseClicked="#musculation" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/weightlifting-.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="txt1" layoutX="73.0" layoutY="667.0" text="Athletisme">
+         <stylesheets>
+            <URL value="@../../../../../Desktop/PI-Dev-Integration/src/gui/sous-titres.css" />
+            <URL value="@sous-titres.css" />
+         </stylesheets></Label>
+      <Label fx:id="txt2" layoutX="278.0" layoutY="667.0" text="BasketBall">
+         <stylesheets>
+            <URL value="@../../../../../Desktop/PI-Dev-Integration/src/gui/sous-titres.css" />
+            <URL value="@sous-titres.css" />
+         </stylesheets></Label>
+      <Label fx:id="txt3" layoutX="488.0" layoutY="667.0" text="Musculation">
+         <stylesheets>
+            <URL value="@../../../../../Desktop/PI-Dev-Integration/src/gui/sous-titres.css" />
+            <URL value="@sous-titres.css" />
+         </stylesheets></Label>
+      <Label fx:id="txt4" layoutX="733.0" layoutY="667.0" text="Tennis">
+         <stylesheets>
+            <URL value="@../../../../../Desktop/PI-Dev-Integration/src/gui/sous-titres.css" />
+            <URL value="@sous-titres.css" />
+         </stylesheets></Label>
+      <Label fx:id="txt5" layoutX="945.0" layoutY="667.0" text="Natation">
+         <stylesheets>
+            <URL value="@../../../../../Desktop/PI-Dev-Integration/src/gui/sous-titres.css" />
+            <URL value="@sous-titres.css" />
+         </stylesheets></Label>
+      <Label fx:id="txt6" layoutX="1148.0" layoutY="667.0" text="FootBall">
+         <stylesheets>
+            <URL value="@../../../../../Desktop/PI-Dev-Integration/src/gui/sous-titres.css" />
+            <URL value="@sous-titres.css" />
+         </stylesheets></Label>
+      <Label layoutX="232.0" layoutY="33.0" onMouseClicked="#CreeEvent" prefHeight="31.0" prefWidth="124.0" text="CrEE un Event">
+         <font>
+            <Font name="Comic Sans MS Bold" size="24.0" />
+         </font>
+         <stylesheets>
+            <URL value="@../../../../../Desktop/PI-Dev-Integration/src/gui/Titre.css" />
+            <URL value="@Titre.css" />
+         </stylesheets>
+      </Label>
+      <Line endX="13.5" endY="-55.70710754394531" layoutX="365.7" layoutY="147.0" startX="13.5" startY="-147.0" />
+      <Label layoutX="572.0" layoutY="33.0" onMouseClicked="#dirigerMessagerieEtAmis" prefHeight="31.0" prefWidth="164.0" text="Messagerie &amp; amis">
+         <font>
+            <Font name="Comic Sans MS Bold" size="24.0" />
+         </font>
+         <stylesheets>
+            <URL value="@../../../../../Desktop/PI-Dev-Integration/src/gui/Titre.css" />
+            <URL value="@Titre.css" />
+         </stylesheets>
+      </Label>
+      <Line endX="13.5" endY="-55.70710754394531" layoutX="1097.1" layoutY="147.0" startX="13.5" startY="-147.0" />
+      <Label layoutX="1122.0" layoutY="33.0" onMouseClicked="#logOut" prefHeight="31.0" prefWidth="139.0" text="se deconnecter">
+         <font>
+            <Font name="Comic Sans MS Bold" size="24.0" />
+         </font>
+         <stylesheets>
+            <URL value="@../../../../../Desktop/PI-Dev-Integration/src/gui/Titre.css" />
+            <URL value="@Titre.css" />
+         </stylesheets>
+      </Label>
+      <Label fx:id="id" layoutX="1223.0" layoutY="17.0" />
+      <BorderPane fx:id="border" layoutY="96.0" prefHeight="625.0" prefWidth="1282.0" />
+   </children>
+</AnchorPane>
